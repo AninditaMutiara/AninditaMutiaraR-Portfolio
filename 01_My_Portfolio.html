@@ -1,0 +1,3647 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anindita Mutiara Ramadhani — Designer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --bg: #faf8ff;
+        --bg2: #f3f0fb;
+        --bg3: #ece7f8;
+        --border: rgba(140, 110, 200, 0.15);
+        --border2: rgba(140, 110, 200, 0.28);
+        --text: #2d2540;
+        --muted: #8b7aaa;
+        --accent: #7c5cbf;
+        --accent2: #a87fc8;
+        --accent-light: #ede8f8;
+        --serif: "Playfair Display", Georgia, serif;
+        --sans: "Outfit", system-ui, sans-serif;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-weight: 300;
+        line-height: 1.7;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 220px;
+        background: #fff;
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        z-index: 100;
+        padding: 2.5rem 0 2rem;
+      }
+      .sidebar-logo {
+        padding: 0 2rem 2.5rem;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 2rem;
+      }
+      .sidebar-logo span {
+        display: block;
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        color: var(--text);
+        line-height: 1.3;
+      }
+      .sidebar-logo em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .sidebar-logo small {
+        display: block;
+        font-size: 0.63rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.35rem;
+      }
+      .nav-tabs {
+        list-style: none;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 0 1rem;
+      }
+      .nav-tabs li a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.65rem 1rem;
+        border-radius: 8px;
+        font-size: 0.82rem;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+        text-decoration: none;
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+      .nav-tabs li a:hover {
+        color: var(--text);
+        background: var(--bg2);
+      }
+      .nav-tabs li a.active {
+        color: var(--accent);
+        background: var(--accent-light);
+      }
+      .nav-tabs li a .nav-icon {
+        width: 16px;
+        height: 16px;
+        opacity: 0.6;
+        flex-shrink: 0;
+        transition: opacity 0.2s;
+      }
+      .nav-tabs li a.active .nav-icon,
+      .nav-tabs li a:hover .nav-icon {
+        opacity: 1;
+      }
+      .sidebar-cv {
+        padding: 1.5rem 1rem 0;
+        border-top: 1px solid var(--border);
+        margin-top: auto;
+      }
+      .sidebar-cv a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.65rem;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 500;
+        border-radius: 6px;
+        transition: background 0.2s;
+      }
+      .sidebar-cv a:hover {
+        background: var(--accent2);
+      }
+      .sidebar-cv a svg {
+        width: 13px;
+        height: 13px;
+      }
+
+      /* MAIN */
+      .main {
+        margin-left: 220px;
+        min-height: 100vh;
+      }
+      .page {
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+      .page.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* PAGE HEADER */
+      .page-header {
+        padding: 3.5rem 4rem 2.5rem;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+      }
+      .page-header::after {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -120px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(168, 127, 200, 0.12) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .ph-tag {
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .ph-tag::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: var(--accent);
+      }
+      .page-header h1 {
+        font-family: var(--serif);
+        font-size: clamp(2.2rem, 4vw, 3.8rem);
+        line-height: 1.05;
+        font-weight: 400;
+        color: var(--text);
+      }
+      .page-header h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .page-header p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        max-width: 520px;
+        margin-top: 0.6rem;
+      }
+
+      /* CONTENT */
+      .pc {
+        padding: 3.5rem 4rem;
+        max-width: 1100px;
+      }
+      .slabel {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .slabel::after {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: var(--accent);
+      }
+      h2 {
+        font-family: var(--serif);
+        font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+        line-height: 1.1;
+        font-weight: 400;
+        margin-bottom: 1.25rem;
+        color: var(--text);
+      }
+      h3 {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        font-weight: 400;
+        margin-bottom: 0.3rem;
+        color: var(--text);
+      }
+      .divider {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 3rem 0;
+      }
+
+      /* BUTTONS */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.7rem 1.6rem;
+        border: 1px solid var(--border2);
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-family: var(--sans);
+        background: transparent;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          background 0.2s,
+          color 0.2s;
+        border-radius: 4px;
+      }
+      .btn:hover {
+        border-color: var(--accent);
+        background: var(--accent-light);
+        color: var(--accent);
+      }
+      .btn-gold {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #fff;
+      }
+      .btn-gold:hover {
+        background: var(--accent2);
+        border-color: var(--accent2);
+        color: #fff;
+      }
+      .btn svg {
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+      }
+
+      /* DASHBOARD HERO */
+      .dash-hero {
+        padding: 4rem;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+        min-height: 380px;
+        display: flex;
+        align-items: flex-end;
+        background: #fff;
+      }
+      .dash-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse 55% 65% at 85% 15%,
+            rgba(168, 127, 200, 0.18) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 45% 45% at 15% 85%,
+            rgba(124, 92, 191, 0.09) 0%,
+            transparent 60%
+          );
+      }
+      .dash-hero::after {
+        content: "";
+        position: absolute;
+        top: -30px;
+        right: 60px;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(
+          ellipse,
+          rgba(216, 200, 240, 0.35) 0%,
+          transparent 70%
+        );
+        border-radius: 60% 40% 70% 30%/40% 60% 30% 70%;
+        animation: floatBloom 8s ease-in-out infinite;
+      }
+      @keyframes floatBloom {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-12px) rotate(3deg);
+        }
+      }
+      .dash-inner {
+        position: relative;
+        z-index: 1;
+      }
+      .dash-tag {
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1.25rem;
+        animation: fadeSlide 0.5s 0.1s both;
+      }
+      .dash-tag::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--accent);
+      }
+      .dash-hero h1 {
+        font-family: var(--serif);
+        font-size: clamp(3rem, 6vw, 5.5rem);
+        line-height: 1.02;
+        font-weight: 400;
+        color: var(--text);
+        animation: fadeSlide 0.6s 0.2s both;
+      }
+      .dash-hero h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .dash-sub {
+        color: var(--muted);
+        font-size: 1rem;
+        max-width: 520px;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        animation: fadeSlide 0.6s 0.3s both;
+      }
+      .dash-ctas {
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        animation: fadeSlide 0.6s 0.4s both;
+      }
+      .stat-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+      }
+      .stat-cell {
+        padding: 2rem 2.5rem;
+        border-right: 1px solid var(--border);
+      }
+      .stat-cell:last-child {
+        border-right: none;
+      }
+      .stat-num {
+        font-family: var(--serif);
+        font-size: 2.8rem;
+        line-height: 1;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+      .stat-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .ov-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .ov-card {
+        background: #fff;
+        padding: 2rem;
+      }
+      .ov-lbl {
+        font-size: 0.65rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .mini-proj {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        transition: padding-left 0.2s;
+      }
+      .mini-proj:hover {
+        padding-left: 0.4rem;
+      }
+      .mini-proj:last-of-type {
+        border-bottom: none;
+      }
+      .mini-dot {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+      .mini-title {
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+      .mini-type {
+        font-size: 0.7rem;
+        color: var(--muted);
+      }
+      .mini-arr {
+        color: var(--muted);
+        font-size: 0.85rem;
+        transition: color 0.2s;
+      }
+      .mini-proj:hover .mini-arr {
+        color: var(--accent);
+      }
+      .sb-item {
+        margin-bottom: 1rem;
+      }
+      .sb-head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.35rem;
+        font-size: 0.82rem;
+        color: var(--text);
+      }
+      .sb-pct {
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+      .sb-track {
+        height: 3px;
+        background: var(--bg3);
+        border-radius: 2px;
+      }
+      .sb-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        border-radius: 2px;
+      }
+
+      /* ABOUT */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 360px;
+        gap: 4rem;
+        align-items: start;
+      }
+      .about-text p {
+        color: var(--muted);
+        font-size: 0.93rem;
+        margin-bottom: 1rem;
+      }
+      .about-card {
+        border: 1px solid var(--border);
+        background: #fff;
+        padding: 2.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+      .about-card::before {
+        content: "";
+        position: absolute;
+        bottom: -40px;
+        right: -40px;
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(
+          circle,
+          rgba(168, 127, 200, 0.15),
+          transparent 70%
+        );
+      }
+      .avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 2rem;
+        color: #fff;
+        margin: 0 auto 1rem;
+      }
+      .about-card h3 {
+        font-family: var(--serif);
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+        color: var(--text);
+      }
+      .ac-role {
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 1.5rem;
+        display: block;
+      }
+      .as-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        margin-top: 1.5rem;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .as-cell {
+        background: var(--bg2);
+        padding: 1.2rem 1rem;
+        text-align: center;
+      }
+      .as-num {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        color: var(--accent);
+        display: block;
+        line-height: 1;
+      }
+      .as-lbl {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 0.2rem;
+        display: block;
+      }
+      .info-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.82rem;
+        text-align: left;
+      }
+      .info-row:last-child {
+        border-bottom: none;
+      }
+      .info-lbl {
+        color: var(--muted);
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        min-width: 60px;
+        padding-top: 0.15rem;
+      }
+      .info-val {
+        color: var(--text);
+      }
+      .lang-pills {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+      .lang-pill {
+        padding: 0.35rem 0.9rem;
+        border: 1px solid rgba(124, 92, 191, 0.3);
+        color: var(--accent);
+        font-size: 0.78rem;
+        border-radius: 20px;
+      }
+      .val-list {
+        list-style: none;
+        margin-top: 1rem;
+      }
+      .val-list li {
+        padding: 0.85rem 0;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        gap: 1rem;
+        align-items: baseline;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+      .val-list li span:first-child {
+        font-family: var(--serif);
+        color: var(--accent);
+        font-size: 0.8rem;
+        min-width: 1.5rem;
+      }
+
+      /* PILLS */
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .pill {
+        padding: 0.45rem 1.1rem;
+        border: 1px solid var(--border);
+        font-size: 0.82rem;
+        color: var(--text);
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+        cursor: default;
+        border-radius: 20px;
+      }
+      .pill:hover {
+        border-color: var(--border2);
+        background: var(--bg2);
+      }
+      .pill.hi {
+        border-color: rgba(124, 92, 191, 0.3);
+        color: var(--accent);
+        background: var(--accent-light);
+      }
+
+      /* PROJECTS */
+      .filter-row {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        margin-bottom: 2rem;
+      }
+      .fbtn {
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.4rem 0.9rem;
+        border: 1px solid var(--border);
+        background: none;
+        color: var(--muted);
+        cursor: pointer;
+        font-family: var(--sans);
+        transition: all 0.2s;
+        border-radius: 20px;
+      }
+      .fbtn:hover,
+      .fbtn.on {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-light);
+      }
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 12px;
+      }
+      .proj-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.25s;
+        cursor: pointer;
+        border-radius: 10px;
+      }
+      .proj-card:hover {
+        background: var(--bg2);
+        border-color: var(--border2);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(124, 92, 191, 0.08);
+      }
+      .proj-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s;
+        border-radius: 10px 10px 0 0;
+      }
+      .proj-card:hover::after {
+        transform: scaleX(1);
+      }
+      .proj-num {
+        font-family: var(--serif);
+        font-size: 0.78rem;
+        color: var(--muted);
+        display: block;
+        margin-bottom: 1rem;
+      }
+      .proj-thumb {
+        width: 100%;
+        aspect-ratio: 16/9;
+        margin-bottom: 1.1rem;
+        position: relative;
+        overflow: hidden;
+        border-radius: 6px;
+      }
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.45;
+        transition: transform 0.4s;
+      }
+      .proj-card:hover .blob {
+        transform: scale(1.12);
+      }
+      .proj-type {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .proj-title {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+        color: var(--text);
+      }
+      .proj-desc {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .proj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 1rem;
+      }
+      .ptag {
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        border-radius: 12px;
+      }
+      .proj-hint {
+        font-size: 0.7rem;
+        color: var(--accent);
+        margin-top: 0.75rem;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .proj-card:hover .proj-hint {
+        opacity: 1;
+      }
+
+      /* PROJECT MODAL */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(45, 37, 64, 0.55);
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        backdrop-filter: blur(4px);
+      }
+      .modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .modal-box {
+        background: #fff;
+        border-radius: 16px;
+        max-width: 800px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        transform: translateY(20px);
+        transition: transform 0.3s;
+        box-shadow: 0 24px 64px rgba(124, 92, 191, 0.18);
+      }
+      .modal-overlay.open .modal-box {
+        transform: translateY(0);
+      }
+      .modal-close {
+        position: sticky;
+        top: 1rem;
+        float: right;
+        margin: 1rem 1rem 0 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-size: 1.1rem;
+        transition: all 0.2s;
+        z-index: 1;
+      }
+      .modal-close:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-light);
+      }
+      .modal-hero {
+        width: 100%;
+        aspect-ratio: 16/7;
+        border-radius: 16px 16px 0 0;
+        overflow: hidden;
+        position: relative;
+        flex-shrink: 0;
+      }
+      .modal-body {
+        padding: 2.5rem;
+      }
+      .modal-tag {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+        display: block;
+      }
+      .modal-title {
+        font-family: var(--serif);
+        font-size: 2rem;
+        font-weight: 400;
+        color: var(--text);
+        margin-bottom: 0.75rem;
+      }
+      .modal-desc {
+        font-size: 0.95rem;
+        color: var(--muted);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+      .modal-photos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 1.5rem;
+      }
+      .modal-photo {
+        border-radius: 8px;
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        position: relative;
+      }
+      .modal-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-top: 1.25rem;
+      }
+
+      /* EXPERIENCE / TIMELINE */
+      .timeline {
+        position: relative;
+        padding-left: 1.75rem;
+      }
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: var(--border);
+      }
+      .tl-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+        padding-left: 1.75rem;
+      }
+      .tl-dot {
+        position: absolute;
+        left: -2.15rem;
+        top: 0.4rem;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: var(--bg2);
+        border: 2px solid var(--accent);
+        transition: background 0.25s;
+      }
+      .tl-item:hover .tl-dot {
+        background: var(--accent);
+      }
+      .tl-date {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+      .tl-role {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        margin-bottom: 0.15rem;
+        color: var(--text);
+      }
+      .tl-co {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .tl-co::before {
+        content: "";
+        width: 14px;
+        height: 1px;
+        background: var(--muted);
+      }
+      .tl-ul {
+        list-style: none;
+        margin-top: 0.6rem;
+      }
+      .tl-ul li {
+        font-size: 0.86rem;
+        color: var(--muted);
+        padding: 0.2rem 0 0.2rem 1rem;
+        position: relative;
+      }
+      .tl-ul li::before {
+        content: "--";
+        position: absolute;
+        left: 0;
+        color: var(--accent2);
+        font-size: 0.72rem;
+      }
+      .tl-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-top: 0.85rem;
+      }
+      .ttag {
+        font-size: 0.62rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.2rem 0.6rem;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        border-radius: 12px;
+      }
+      .edu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 8px;
+      }
+      .edu-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        padding: 1.75rem;
+        transition: all 0.2s;
+        border-radius: 8px;
+      }
+      .edu-card:hover {
+        background: var(--accent-light);
+        border-color: var(--border2);
+      }
+      .edu-year {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+      .edu-deg {
+        font-family: var(--serif);
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+        color: var(--text);
+      }
+      .edu-school {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      /* ACHIEVEMENTS GALLERY */
+      .highlights-gallery {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        margin-top: 1.5rem;
+      }
+      .gallery-item {
+        position: relative;
+        aspect-ratio: 3/4;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+      .gallery-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(124, 92, 191, 0.18);
+      }
+      .gallery-bg {
+        position: absolute;
+        inset: 0;
+        transition: transform 0.4s;
+      }
+      .gallery-item:hover .gallery-bg {
+        transform: scale(1.06);
+      }
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(44, 37, 64, 0.72) 0%,
+          transparent 55%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: 0.9rem;
+      }
+      .gallery-label {
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+        color: #fff;
+        font-family: var(--sans);
+        font-weight: 400;
+        line-height: 1.3;
+      }
+
+      /* CERT SLIDESHOW */
+      .cert-slideshow {
+        position: relative;
+        margin-top: 1.5rem;
+      }
+      .cert-slides-wrap {
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+      .cert-track {
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .cert-slide {
+        min-width: 100%;
+        display: flex;
+      }
+      .cert-img-side {
+        width: 55%;
+        background: var(--bg3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 520px;
+        position: relative;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+      .cert-img-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .cert-img-badge {
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--serif);
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 0.5rem;
+      }
+      .cert-img-abbr {
+        font-family: var(--serif);
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--text);
+        letter-spacing: 0.04em;
+      }
+      .cert-img-org {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .cert-info-side {
+        width: 45%;
+        background: #fff;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .cert-info-name {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        color: var(--text);
+        margin-bottom: 0.4rem;
+      }
+      .cert-info-org {
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+      .cert-info-desc {
+        font-size: 0.86rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+      .cert-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+      .cert-prev,
+      .cert-next {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        background: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        transition: all 0.2s;
+        font-size: 0.9rem;
+      }
+      .cert-prev:hover,
+      .cert-next:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--accent-light);
+      }
+      .cert-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .cert-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--bg3);
+        border: 1px solid var(--border);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .cert-dot.active {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* ACHIEVEMENT MODAL */
+      .ach-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(45, 37, 64, 0.55);
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+        backdrop-filter: blur(4px);
+      }
+      .ach-modal-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .ach-modal-box {
+        background: #fff;
+        border-radius: 16px;
+        max-width: 600px;
+        width: 100%;
+        max-height: 88vh;
+        overflow-y: auto;
+        position: relative;
+        transform: translateY(20px);
+        transition: transform 0.3s;
+        box-shadow: 0 24px 64px rgba(124, 92, 191, 0.18);
+      }
+      .ach-modal-overlay.open .ach-modal-box {
+        transform: translateY(0);
+      }
+      .ach-modal-hero {
+        width: 100%;
+        height: 200px;
+        border-radius: 16px 16px 0 0;
+        overflow: hidden;
+        position: relative;
+      }
+      .ach-modal-body {
+        padding: 2rem 2.5rem 2.5rem;
+      }
+      .ach-modal-tag {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.4rem;
+        display: block;
+      }
+      .ach-modal-title {
+        font-family: var(--serif);
+        font-size: 1.7rem;
+        font-weight: 400;
+        color: var(--text);
+        margin-bottom: 0.75rem;
+      }
+      .ach-modal-desc {
+        font-size: 0.93rem;
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      /* CV */
+      .cv-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 3.5rem;
+        align-items: start;
+      }
+      .cv-sidebar {
+        position: sticky;
+        top: 2rem;
+      }
+      .cv-preview-wrap {
+        border: 1px solid var(--border);
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+        border-radius: 10px;
+      }
+      .cv-preview-bar {
+        background: var(--bg2);
+        padding: 1rem 1.25rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .cv-preview-bar span {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .cv-dots {
+        display: flex;
+        gap: 5px;
+      }
+      .cvd {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--border2);
+      }
+      .cv-mock {
+        background: #fff;
+        padding: 1.75rem;
+        min-height: 360px;
+        position: relative;
+      }
+      .cv-mock-accent {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 5px;
+        bottom: 0;
+        background: linear-gradient(to bottom, var(--accent), var(--accent2));
+      }
+      .cv-mock-name {
+        font-family: "Playfair Display", serif;
+        font-size: 1.1rem;
+        color: #2d2540;
+        margin-bottom: 0.1rem;
+      }
+      .cv-mock-role {
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #8b7aaa;
+        margin-bottom: 1rem;
+      }
+      .cv-mock-hr {
+        height: 1px;
+        background: #ece7f8;
+        margin-bottom: 0.9rem;
+      }
+      .cv-mock-sec {
+        margin-bottom: 0.85rem;
+      }
+      .cv-mock-lbl {
+        font-size: 0.55rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #7c5cbf;
+        margin-bottom: 0.35rem;
+      }
+      .cv-ln {
+        height: 5px;
+        background: #f0ebfa;
+        border-radius: 2px;
+        margin-bottom: 4px;
+      }
+      .cv-ln.s {
+        width: 55%;
+      }
+      .cv-ln.m {
+        width: 78%;
+      }
+      .cv-ln.f {
+        width: 92%;
+      }
+      .cv-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+      .cv-note {
+        font-size: 0.68rem;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 0.4rem;
+      }
+      .cv-note code {
+        font-size: 0.66rem;
+        color: var(--accent);
+      }
+      .cv-section {
+        margin-bottom: 2.75rem;
+      }
+      .cv-entry {
+        margin-bottom: 1.75rem;
+        padding-bottom: 1.75rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .cv-entry:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .cv-eh {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.15rem;
+      }
+      .cv-etitle {
+        font-family: var(--serif);
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .cv-edate {
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        white-space: nowrap;
+      }
+      .cv-esub {
+        font-size: 0.78rem;
+        color: var(--muted);
+        margin-bottom: 0.6rem;
+      }
+      .cv-eul {
+        list-style: none;
+        margin-top: 0.4rem;
+      }
+      .cv-eul li {
+        font-size: 0.85rem;
+        color: var(--muted);
+        padding: 0.18rem 0 0.18rem 1rem;
+        position: relative;
+      }
+      .cv-eul li::before {
+        content: "--";
+        position: absolute;
+        left: 0;
+        color: var(--accent2);
+        font-size: 0.7rem;
+      }
+
+      /* FOOTER */
+      .footer-contact {
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        padding: 3.5rem 4rem;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        max-width: 900px;
+      }
+      .footer-logo {
+        font-family: var(--serif);
+        font-size: 1.15rem;
+        display: block;
+        margin-bottom: 0.4rem;
+        color: var(--text);
+      }
+      .footer-logo em {
+        font-style: italic;
+        color: var(--accent);
+      }
+      .footer-sub {
+        font-size: 0.85rem;
+        color: var(--muted);
+        max-width: 300px;
+      }
+      .fc-title {
+        font-size: 0.65rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 1rem;
+      }
+      .fc-email {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        color: var(--text);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 1.25rem;
+        transition: color 0.2s;
+      }
+      .fc-email:hover {
+        color: var(--accent);
+      }
+      .socials {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+      .socials a {
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .socials a:hover {
+        color: var(--accent);
+      }
+      .footer-bottom {
+        margin-top: 2.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.7rem;
+        color: var(--muted);
+        max-width: 900px;
+      }
+
+      /* MOBILE */
+      .topbar {
+        display: none;
+      }
+      @keyframes fadeSlide {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* SVG ILLUSTRATIONS for web project thumbs */
+      .web-thumb-svg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+      }
+
+      @media (max-width: 900px) {
+        .sidebar {
+          display: none;
+        }
+        .main {
+          margin-left: 0;
+        }
+        .topbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 1.5rem;
+          background: #fff;
+          border-bottom: 1px solid var(--border);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+        }
+        .topbar-logo {
+          font-family: var(--serif);
+          font-size: 1rem;
+          color: var(--text);
+        }
+        .topbar-logo em {
+          font-style: italic;
+          color: var(--accent);
+        }
+        .topbar-nav {
+          display: flex;
+          gap: 0;
+          overflow-x: auto;
+        }
+        .topbar-nav a {
+          font-size: 0.65rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          padding: 0.4rem 0.65rem;
+          color: var(--muted);
+          text-decoration: none;
+          white-space: nowrap;
+          border-radius: 4px;
+          transition: all 0.2s;
+        }
+        .topbar-nav a.active {
+          color: var(--accent);
+          background: var(--accent-light);
+        }
+        .pc,
+        .page-header,
+        .dash-hero,
+        .footer-contact {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+        .about-grid,
+        .cv-layout {
+          grid-template-columns: 1fr;
+        }
+        .ov-grid {
+          grid-template-columns: 1fr;
+        }
+        .stat-strip {
+          grid-template-columns: 1fr 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 0.3rem;
+        }
+        .highlights-gallery {
+          grid-template-columns: 1fr 1fr;
+        }
+        .cert-slide {
+          flex-direction: column;
+        }
+        .cert-img-side {
+          width: 100%;
+          min-height: 320px;
+        }
+        .cert-info-side {
+          width: 100%;
+        }
+        .modal-photos {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PROJECT MODAL -->
+    <div class="modal-overlay" id="projModal">
+      <div class="modal-box">
+        <button class="modal-close" id="projModalClose">&#x2715;</button>
+        <div class="modal-hero" id="projModalHero"></div>
+        <div class="modal-body">
+          <span class="modal-tag" id="projModalTag"></span>
+          <div class="modal-title" id="projModalTitle"></div>
+          <div class="modal-desc" id="projModalDesc"></div>
+          <div class="modal-tags" id="projModalTags"></div>
+          <div class="modal-photos" id="projModalPhotos"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENT MODAL -->
+    <div class="ach-modal-overlay" id="achModal">
+      <div class="ach-modal-box">
+        <button class="modal-close" id="achModalClose">&#x2715;</button>
+        <div class="ach-modal-hero" id="achModalHero"></div>
+        <div class="ach-modal-body">
+          <span class="ach-modal-tag" id="achModalTag"></span>
+          <div class="ach-modal-title" id="achModalTitle"></div>
+          <div class="ach-modal-desc" id="achModalDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar">
+      <span class="topbar-logo"><em>Anindita</em> Mutiara</span>
+      <nav class="topbar-nav" id="topbarNav"></nav>
+    </div>
+
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <span><em>Anindita</em> Mutiara<br />Ramadhani</span>
+        <small>Graphic Designer &amp; UI/UX</small>
+      </div>
+      <ul class="nav-tabs" id="sideNav"></ul>
+      <div class="sidebar-cv">
+        <a href="CV - Anindita Mutiara R.pdf" download>
+          <svg viewBox="0 0 14 14" fill="none">
+            <path
+              d="M7 1v8M4 7l3 3 3-3M2 11h10"
+              stroke="currentColor"
+              stroke-width="1.3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Download CV
+        </a>
+      </div>
+    </aside>
+
+    <div class="main">
+      <!-- ══ DASHBOARD ══ -->
+      <div class="page active" id="page-dashboard">
+        <div class="dash-hero">
+          <div class="dash-inner">
+            <div class="dash-tag">Graphic Designer &amp; UI/UX Developer</div>
+            <h1>Designing<br /><em>experiences</em><br />that inspire.</h1>
+            <p class="dash-sub">
+              Multimedia student at APU with a passion for graphic design,
+              interactive media, web development, and digital illustration.
+              Based in Kuala Lumpur.
+            </p>
+            <div class="dash-ctas">
+              <a
+                href="#"
+                class="btn btn-gold"
+                onclick="
+                  showPage('projects');
+                  return false;
+                "
+              >
+                <svg viewBox="0 0 14 14" fill="none">
+                  <path
+                    d="M1 7h12M8 2l5 5-5 5"
+                    stroke="currentColor"
+                    stroke-width="1.3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                View my work
+              </a>
+              <a href="CV - Anindita Mutiara R.pdf" download class="btn"
+                >Download CV</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="stat-strip">
+          <div class="stat-cell">
+            <span class="stat-num">11+</span
+            ><span class="stat-label">Projects completed</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-num">8</span
+            ><span class="stat-label">Certifications</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-num">5+</span
+            ><span class="stat-label">Activities &amp; clubs</span>
+          </div>
+          <div class="stat-cell">
+            <span class="stat-num">2</span
+            ><span class="stat-label">Languages</span>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="ov-grid">
+            <div class="ov-card">
+              <span class="ov-lbl">Featured work</span>
+              <div class="mini-proj" onclick="showPage('projects')">
+                <div
+                  class="mini-dot"
+                  style="background: linear-gradient(135deg, #d4b8f0, #9b6fd4)"
+                ></div>
+                <div style="flex: 1">
+                  <div class="mini-title">Business Cards &amp; Logos</div>
+                  <div class="mini-type">
+                    Graphic Design &middot; Adobe Photoshop
+                  </div>
+                </div>
+                <span class="mini-arr">&#8594;</span>
+              </div>
+              <div class="mini-proj" onclick="showPage('projects')">
+                <div
+                  class="mini-dot"
+                  style="background: linear-gradient(135deg, #b8d4f0, #7c9fd4)"
+                ></div>
+                <div style="flex: 1">
+                  <div class="mini-title">Tourism &amp; Portfolio Websites</div>
+                  <div class="mini-type">Web &amp; UI &middot; HTML, CSS</div>
+                </div>
+                <span class="mini-arr">&#8594;</span>
+              </div>
+              <div class="mini-proj" onclick="showPage('projects')">
+                <div
+                  class="mini-dot"
+                  style="background: linear-gradient(135deg, #f0d4e8, #d46fa0)"
+                ></div>
+                <div style="flex: 1">
+                  <div class="mini-title">Animation and E-Comic</div>
+                  <div class="mini-type">
+                    Interactive &middot; Adobe Animate
+                  </div>
+                </div>
+                <span class="mini-arr">&#8594;</span>
+              </div>
+              <div class="mini-proj" onclick="showPage('projects')">
+                <div
+                  class="mini-dot"
+                  style="background: linear-gradient(135deg, #d4e8f0, #6fbcd4)"
+                ></div>
+                <div style="flex: 1">
+                  <div class="mini-title">3D Character &amp; Mech</div>
+                  <div class="mini-type">3D &middot; Zbrush &amp; 3ds Max</div>
+                </div>
+                <span class="mini-arr">&#8594;</span>
+              </div>
+              <div style="margin-top: 1.5rem">
+                <a
+                  href="#"
+                  class="btn"
+                  onclick="
+                    showPage('projects');
+                    return false;
+                  "
+                  style="font-size: 0.7rem; padding: 0.5rem 1rem"
+                  >See all projects &#8594;</a
+                >
+              </div>
+            </div>
+            <div class="ov-card">
+              <span class="ov-lbl">Top skills</span>
+              <div class="sb-item">
+                <div class="sb-head">
+                  <span>Graphic Design</span><span class="sb-pct">90%</span>
+                </div>
+                <div class="sb-track">
+                  <div class="sb-fill" style="width: 90%"></div>
+                </div>
+              </div>
+              <div class="sb-item">
+                <div class="sb-head">
+                  <span>Adobe Photoshop</span><span class="sb-pct">88%</span>
+                </div>
+                <div class="sb-track">
+                  <div class="sb-fill" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="sb-item">
+                <div class="sb-head">
+                  <span>Adobe Animate</span><span class="sb-pct">85%</span>
+                </div>
+                <div class="sb-track">
+                  <div class="sb-fill" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="sb-item">
+                <div class="sb-head">
+                  <span>Web Design (HTML/CSS)</span
+                  ><span class="sb-pct">80%</span>
+                </div>
+                <div class="sb-track">
+                  <div class="sb-fill" style="width: 80%"></div>
+                </div>
+              </div>
+              <div class="sb-item">
+                <div class="sb-head">
+                  <span>Figma / UI/UX Design</span
+                  ><span class="sb-pct">76%</span>
+                </div>
+                <div class="sb-track">
+                  <div class="sb-fill" style="width: 76%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slabel">Current study</div>
+          <div
+            style="
+              border: 1px solid var(--border);
+              padding: 1.75rem;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              flex-wrap: wrap;
+              gap: 1rem;
+              background: #fff;
+              border-radius: 8px;
+            "
+          >
+            <div>
+              <div
+                style="
+                  font-family: var(--serif);
+                  font-size: 1.05rem;
+                  margin-bottom: 0.15rem;
+                  color: var(--text);
+                "
+              >
+                Bachelor in Interactive Media &amp; Immersive Technology
+              </div>
+              <div style="font-size: 0.8rem; color: var(--muted)">
+                Asia Pacific University (APU) &middot; Kuala Lumpur &middot;
+                2024 &mdash; 2027
+              </div>
+            </div>
+            <a
+              href="#"
+              class="btn"
+              onclick="
+                showPage('experience');
+                return false;
+              "
+              style="font-size: 0.7rem; padding: 0.5rem 1rem"
+              >Full history &#8594;</a
+            >
+          </div>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-grid">
+            <div>
+              <span class="footer-logo"
+                ><em>Anindita</em> Mutiara Ramadhani</span
+              >
+              <p class="footer-sub">
+                Aspiring Graphic Designer &amp; UI/UX Developer based in Kuala
+                Lumpur, Malaysia.
+              </p>
+            </div>
+            <div>
+              <div class="fc-title">Get in touch</div>
+              <a href="mailto:aninditamutiara.r@gmail.com" class="fc-email"
+                >aninditamutiara.r@gmail.com</a
+              >
+              <div class="socials">
+                <a href="tel:+60182890913">+60 18-289 0913</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span
+              >&copy; 2026 Anindita Mutiara Ramadhani. All rights
+              reserved.</span
+            ><span>Kuala Lumpur, Malaysia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ ABOUT ══ -->
+      <div class="page" id="page-about">
+        <div class="page-header">
+          <div class="ph-tag">Who I am</div>
+          <h1>About <em>me.</em></h1>
+          <p>
+            Aspiring designer, creative thinker, and multimedia student based in
+            Kuala Lumpur.
+          </p>
+        </div>
+        <div class="pc">
+          <div class="about-grid">
+            <div class="about-text">
+              <div class="slabel">My story</div>
+              <h2>Creating with purpose.</h2>
+              <p>
+                I'm an aspiring Graphic Designer and UI/UX Developer, currently
+                pursuing a Bachelor in Interactive Media and Immersive
+                Technology at Asia Pacific University (APU), Kuala Lumpur.
+              </p>
+              <p>
+                I have hands-on experience across a wide range of creative
+                disciplines — from website development and digital illustration
+                to 3D modelling, interactive media, and content creation. I love
+                finding the intersection where aesthetics meet functionality.
+              </p>
+              <p>
+                I'm actively involved on campus, contributing to committees like
+                the APU AI Committee where I design graphics for events and
+                assist in planning workshops and student engagement programs.
+              </p>
+              <p>
+                I'm seeking opportunities to apply and expand my skills, build
+                meaningful projects, and grow as a professional in the creative
+                tech industry.
+              </p>
+              <div
+                style="
+                  margin-top: 1.75rem;
+                  display: flex;
+                  gap: 0.75rem;
+                  flex-wrap: wrap;
+                "
+              >
+                <a
+                  href="CV - Anindita Mutiara R.pdf"
+                  download
+                  class="btn btn-gold"
+                  >Download CV</a
+                >
+                <a
+                  href="#"
+                  class="btn"
+                  onclick="
+                    showPage('projects');
+                    return false;
+                  "
+                  >See my work</a
+                >
+              </div>
+            </div>
+            <div>
+              <div class="about-card">
+                <div class="avatar">AM</div>
+                <h3>Anindita Mutiara Ramadhani</h3>
+                <span class="ac-role">Graphic Design &amp; UI/UX</span>
+                <div style="margin-top: 1rem; text-align: left">
+                  <div class="info-row">
+                    <span class="info-lbl">Email</span
+                    ><span
+                      class="info-val"
+                      style="font-size: 0.78rem; word-break: break-all"
+                      >aninditamutiara.r@gmail.com</span
+                    >
+                  </div>
+                  <div class="info-row">
+                    <span class="info-lbl">Phone</span
+                    ><span class="info-val">+60 18-289 0913</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="info-lbl">Location</span
+                    ><span class="info-val">Parkhill Residence, KL</span>
+                  </div>
+                </div>
+                <div class="as-grid">
+                  <div class="as-cell">
+                    <span class="as-num">11+</span
+                    ><span class="as-lbl">Projects</span>
+                  </div>
+                  <div class="as-cell">
+                    <span class="as-num">8</span
+                    ><span class="as-lbl">Certs</span>
+                  </div>
+                  <div class="as-cell">
+                    <span class="as-num">5+</span
+                    ><span class="as-lbl">Activities</span>
+                  </div>
+                  <div class="as-cell">
+                    <span class="as-num">2</span
+                    ><span class="as-lbl">Languages</span>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top: 1.5rem">
+                <div class="slabel" style="margin-bottom: 0.6rem">
+                  Languages
+                </div>
+                <div class="lang-pills">
+                  <span class="lang-pill">English</span
+                  ><span class="lang-pill">Indonesian</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="divider" />
+        </div>
+        <div class="footer-contact">
+          <div class="footer-grid">
+            <div>
+              <span class="footer-logo"
+                ><em>Anindita</em> Mutiara Ramadhani</span
+              >
+              <p class="footer-sub">
+                Aspiring Graphic Designer &amp; UI/UX Developer based in Kuala
+                Lumpur.
+              </p>
+            </div>
+            <div>
+              <div class="fc-title">Get in touch</div>
+              <a href="mailto:aninditamutiara.r@gmail.com" class="fc-email"
+                >aninditamutiara.r@gmail.com</a
+              >
+              <div class="socials">
+                <a href="tel:+60182890913">+60 18-289 0913</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>&copy; 2026 Anindita Mutiara Ramadhani.</span
+            ><span>Kuala Lumpur, Malaysia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ PROJECTS ══ -->
+      <div class="page" id="page-projects">
+        <div class="page-header">
+          <div class="ph-tag">My work</div>
+          <h1>Selected <em>projects.</em></h1>
+          <p>
+            Click any project to see details and photos. Spanning graphic
+            design, web, interactive media, and 3D.
+          </p>
+        </div>
+        <div class="pc">
+          <div class="filter-row">
+            <button class="fbtn on" data-cat="all">All</button>
+            <button class="fbtn" data-cat="design">Graphic Design</button>
+            <button class="fbtn" data-cat="web">Web &amp; UI</button>
+            <button class="fbtn" data-cat="interactive">
+              Interactive / 3D
+            </button>
+            <button class="fbtn" data-cat="others">Others</button>
+            <button class="fbtn" data-cat="media">Video / Audio</button>
+          </div>
+          <div class="proj-grid" id="projGrid">
+            <!-- Cards injected by JS -->
+          </div>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-grid">
+            <div>
+              <span class="footer-logo"
+                ><em>Anindita</em> Mutiara Ramadhani</span
+              >
+              <p class="footer-sub">
+                Aspiring Graphic Designer &amp; UI/UX Developer based in Kuala
+                Lumpur.
+              </p>
+            </div>
+            <div>
+              <div class="fc-title">Get in touch</div>
+              <a href="mailto:aninditamutiara.r@gmail.com" class="fc-email"
+                >aninditamutiara.r@gmail.com</a
+              >
+              <div class="socials">
+                <a href="tel:+60182890913">+60 18-289 0913</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>&copy; 2026 Anindita Mutiara Ramadhani.</span
+            ><span>Kuala Lumpur, Malaysia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ EXPERIENCE ══ -->
+      <div class="page" id="page-experience">
+        <div class="page-header">
+          <div class="ph-tag">Background</div>
+          <h1>Education &amp; <em>experience.</em></h1>
+          <p>
+            Academic journey and hands-on involvement across campus and
+            community.
+          </p>
+        </div>
+        <div class="pc">
+          <div class="slabel">Education</div>
+          <h2>Academic background.</h2>
+          <div class="edu-grid" style="margin-top: 1.5rem; margin-bottom: 3rem">
+            <div class="edu-card">
+              <span class="edu-year">2024 &mdash; 2027</span>
+              <div class="edu-deg">
+                Bachelor in Interactive Media &amp; Immersive Technology
+              </div>
+              <span class="edu-school"
+                >Asia Pacific University (APU) &middot; Kuala Lumpur,
+                Malaysia</span
+              >
+            </div>
+            <div class="edu-card">
+              <span class="edu-year">2023 &mdash; 2024</span>
+              <div class="edu-deg">Foundation in Information Technology</div>
+              <span class="edu-school"
+                >Asia Pacific University (APU) &middot; Kuala Lumpur,
+                Malaysia</span
+              >
+            </div>
+            <div class="edu-card">
+              <span class="edu-year">2017 &mdash; 2023</span>
+              <div class="edu-deg">Middle School &amp; High School</div>
+              <span class="edu-school"
+                >Al Noor International School &middot; Bahrain</span
+              >
+            </div>
+          </div>
+          <hr class="divider" />
+          <div class="slabel">Experience &amp; Involvement</div>
+          <h2>Where I have contributed.</h2>
+          <div class="timeline" style="margin-top: 2.5rem">
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-date">2025 &mdash; 2026</span>
+              <h3 class="tl-role">Committee Member &mdash; APU AI Committee</h3>
+              <span class="tl-co"
+                >Asia Pacific University &middot; Kuala Lumpur</span
+              >
+              <ul class="tl-ul">
+                <li>
+                  Designed various graphics for events and student initiatives.
+                </li>
+                <li>
+                  Assisted in planning workshops and student engagement
+                  programs.
+                </li>
+                <li>Contributed to AI Week 2026: LLM Everywhere.</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="ttag">Graphic Design</span
+                ><span class="ttag">Event Planning</span
+                ><span class="ttag">Canva</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-date">2026</span>
+              <h3 class="tl-role">
+                Crew Member &mdash; APU Mega Career Fair 2026
+              </h3>
+              <span class="tl-co"
+                >Asia Pacific University &middot; Kuala Lumpur</span
+              >
+              <ul class="tl-ul">
+                <li>
+                  Supported event organisation for a large-scale university
+                  career fair.
+                </li>
+              </ul>
+              <div class="tl-tags">
+                <span class="ttag">Event Support</span
+                ><span class="ttag">Teamwork</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-date">2025</span>
+              <h3 class="tl-role">
+                Peer Leader &mdash; Adapted Classwide Peer Tutoring (Math)
+              </h3>
+              <span class="tl-co"
+                >Asia Pacific University &middot; Kuala Lumpur</span
+              >
+              <ul class="tl-ul">
+                <li>
+                  Tutored 5&ndash;10 students in mathematics, improving their
+                  understanding of key concepts.
+                </li>
+                <li>
+                  Adapted teaching methods to suit different learning styles.
+                </li>
+                <li>
+                  All participants passed the subsequent mathematics exam.
+                </li>
+              </ul>
+              <div class="tl-tags">
+                <span class="ttag">Teaching</span
+                ><span class="ttag">Communication</span
+                ><span class="ttag">Leadership</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-date">2025</span>
+              <h3 class="tl-role">Volunteer &mdash; SPCA</h3>
+              <span class="tl-co"
+                >Society for the Prevention of Cruelty to Animals &middot; Kuala
+                Lumpur</span
+              >
+              <ul class="tl-ul">
+                <li>
+                  Maintained pet hygiene by washing cat cages and organising cat
+                  rooms.
+                </li>
+                <li>Assisted with animal care routines by walking the dogs.</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="ttag">Volunteering</span
+                ><span class="ttag">Animal Care</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-date">Ongoing</span>
+              <h3 class="tl-role">
+                Member &mdash; Women Empowerment Club (WEC)
+              </h3>
+              <span class="tl-co">Asia Pacific University</span>
+              <ul class="tl-ul">
+                <li>
+                  Participated in workshops and booth management initiatives.
+                </li>
+              </ul>
+              <div class="tl-tags">
+                <span class="ttag">Community</span
+                ><span class="ttag">Empowerment</span>
+              </div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-dot"></div>
+              <span class="tl-date">Ongoing</span>
+              <h3 class="tl-role">
+                Member &mdash; Angkatan Mahasiswa Anti Rasuah Club (AMAR)
+              </h3>
+              <span class="tl-co">Asia Pacific University</span>
+              <ul class="tl-ul">
+                <li>Participated in charity events and awareness campaigns.</li>
+              </ul>
+              <div class="tl-tags">
+                <span class="ttag">Community</span
+                ><span class="ttag">Awareness</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-grid">
+            <div>
+              <span class="footer-logo"
+                ><em>Anindita</em> Mutiara Ramadhani</span
+              >
+              <p class="footer-sub">
+                Aspiring Graphic Designer &amp; UI/UX Developer based in Kuala
+                Lumpur.
+              </p>
+            </div>
+            <div>
+              <div class="fc-title">Get in touch</div>
+              <a href="mailto:aninditamutiara.r@gmail.com" class="fc-email"
+                >aninditamutiara.r@gmail.com</a
+              >
+              <div class="socials">
+                <a href="tel:+60182890913">+60 18-289 0913</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>&copy; 2026 Anindita Mutiara Ramadhani.</span
+            ><span>Kuala Lumpur, Malaysia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ ACHIEVEMENTS ══ -->
+      <div class="page" id="page-achievements">
+        <div class="page-header">
+          <div class="ph-tag">Recognition</div>
+          <h1>Achievements &amp; <em>certifications.</em></h1>
+          <p>Click any highlight or certification to learn more.</p>
+        </div>
+        <div class="pc">
+          <div class="slabel">Highlights</div>
+          <h2>Notable moments.</h2>
+          <div class="highlights-gallery" id="highlightsGallery"></div>
+          <hr class="divider" />
+          <div class="slabel">Formal credentials</div>
+          <h2>Certifications.</h2>
+          <div class="cert-slideshow">
+            <div class="cert-slides-wrap">
+              <div class="cert-track" id="certTrack"></div>
+            </div>
+            <div class="cert-nav">
+              <button class="cert-prev" id="certPrev">&#8592;</button>
+              <div class="cert-dots" id="certDots"></div>
+              <button class="cert-next" id="certNext">&#8594;</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-grid">
+            <div>
+              <span class="footer-logo"
+                ><em>Anindita</em> Mutiara Ramadhani</span
+              >
+              <p class="footer-sub">
+                Aspiring Graphic Designer &amp; UI/UX Developer based in Kuala
+                Lumpur.
+              </p>
+            </div>
+            <div>
+              <div class="fc-title">Get in touch</div>
+              <a href="mailto:aninditamutiara.r@gmail.com" class="fc-email"
+                >aninditamutiara.r@gmail.com</a
+              >
+              <div class="socials">
+                <a href="tel:+60182890913">+60 18-289 0913</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>&copy; 2026 Anindita Mutiara Ramadhani.</span
+            ><span>Kuala Lumpur, Malaysia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ CV ══ -->
+      <div class="page" id="page-cv">
+        <div class="page-header">
+          <div class="ph-tag">Curriculum Vitae</div>
+          <h1>My <em>CV.</em></h1>
+          <p>View the summary below or download the full PDF version.</p>
+        </div>
+        <div class="pc">
+          <div class="cv-layout">
+            <div>
+              <div class="cv-section">
+                <div class="slabel">Profile</div>
+                <p
+                  style="
+                    color: var(--muted);
+                    font-size: 0.93rem;
+                    line-height: 1.75;
+                  "
+                >
+                  Aspiring Graphic Designer and UI/UX Developer, and a current
+                  Multimedia student at Asia Pacific University (APU), with
+                  experience in website development, digital illustration, 3D
+                  modeling, interactive media, and content creation. Seeking
+                  opportunities to apply and expand my skills for my future.
+                </p>
+              </div>
+              <hr class="divider" />
+              <div class="cv-section">
+                <div class="slabel">Education</div>
+                <div class="cv-entry">
+                  <div class="cv-eh">
+                    <span class="cv-etitle"
+                      >Bachelor in Interactive Media &amp; Immersive
+                      Technology</span
+                    ><span class="cv-edate">2024 &mdash; 2027</span>
+                  </div>
+                  <div class="cv-esub">
+                    Asia Pacific University (APU) &middot; Kuala Lumpur,
+                    Malaysia
+                  </div>
+                </div>
+                <div class="cv-entry">
+                  <div class="cv-eh">
+                    <span class="cv-etitle"
+                      >Foundation in Information Technology</span
+                    ><span class="cv-edate">2023 &mdash; 2024</span>
+                  </div>
+                  <div class="cv-esub">
+                    Asia Pacific University (APU) &middot; Kuala Lumpur,
+                    Malaysia
+                  </div>
+                </div>
+                <div class="cv-entry">
+                  <div class="cv-eh">
+                    <span class="cv-etitle"
+                      >Middle School &amp; High School</span
+                    ><span class="cv-edate">2017 &mdash; 2023</span>
+                  </div>
+                  <div class="cv-esub">
+                    Al Noor International School &middot; Bahrain
+                  </div>
+                </div>
+              </div>
+              <hr class="divider" />
+              <div class="cv-section">
+                <div class="slabel">Experience &amp; Involvement</div>
+                <div class="cv-entry">
+                  <div class="cv-eh">
+                    <span class="cv-etitle"
+                      >Committee Member &mdash; APU AI Committee</span
+                    ><span class="cv-edate">2025 &mdash; 2026</span>
+                  </div>
+                  <div class="cv-esub">Asia Pacific University</div>
+                  <ul class="cv-eul">
+                    <li>
+                      Designed graphics for events and student initiatives.
+                    </li>
+                    <li>
+                      Assisted in planning workshops and student engagement
+                      programs.
+                    </li>
+                    <li>Contributed to AI Week 2026: LLM Everywhere.</li>
+                  </ul>
+                </div>
+                <div class="cv-entry">
+                  <div class="cv-eh">
+                    <span class="cv-etitle"
+                      >Peer Leader &mdash; Adapted Classwide Peer Tutoring
+                      (Math)</span
+                    ><span class="cv-edate">2025</span>
+                  </div>
+                  <div class="cv-esub">Asia Pacific University</div>
+                  <ul class="cv-eul">
+                    <li>
+                      Tutored 5&ndash;10 students; all participants passed the
+                      math exam.
+                    </li>
+                    <li>
+                      Adapted teaching methods to different learning styles.
+                    </li>
+                  </ul>
+                </div>
+                <div class="cv-entry">
+                  <div class="cv-eh">
+                    <span class="cv-etitle"
+                      >Crew Member &mdash; APU Mega Career Fair 2026</span
+                    ><span class="cv-edate">2026</span>
+                  </div>
+                  <div class="cv-esub">Asia Pacific University</div>
+                  <ul class="cv-eul">
+                    <li>
+                      Supported event organisation for a large-scale university
+                      career fair.
+                    </li>
+                  </ul>
+                </div>
+                <div class="cv-entry">
+                  <div class="cv-eh">
+                    <span class="cv-etitle">Volunteer &mdash; SPCA</span
+                    ><span class="cv-edate">2025</span>
+                  </div>
+                  <div class="cv-esub">Kuala Lumpur</div>
+                  <ul class="cv-eul">
+                    <li>
+                      Maintained pet hygiene and assisted with animal care
+                      routines.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <hr class="divider" />
+              <div class="cv-section">
+                <div class="slabel">Skills</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.45rem">
+                  <span class="pill">Graphic Design</span
+                  ><span class="pill">Adobe Photoshop</span
+                  ><span class="pill">Adobe Animate</span
+                  ><span class="pill">Figma</span><span class="pill">Canva</span
+                  ><span class="pill">HTML &amp; CSS</span
+                  ><span class="pill">Video Editing</span
+                  ><span class="pill">3D Modelling</span
+                  ><span class="pill">Python</span><span class="pill">R</span
+                  ><span class="pill">Writing</span
+                  ><span class="pill">Web Design</span>
+                </div>
+              </div>
+              <hr class="divider" />
+              <div class="cv-section">
+                <div class="slabel">Contact &amp; Languages</div>
+                <div
+                  style="
+                    font-size: 0.9rem;
+                    color: var(--muted);
+                    line-height: 2.2;
+                  "
+                >
+                  Email: aninditamutiara.r@gmail.com<br />Phone: +60 18-289
+                  0913<br />Address: Parkhill Residence, Kuala Lumpur<br />Languages:
+                  English &amp; Indonesian
+                </div>
+              </div>
+            </div>
+            <div class="cv-sidebar">
+              <div class="cv-preview-wrap">
+                <div class="cv-preview-bar">
+                  <span>CV Preview</span>
+                  <div class="cv-dots">
+                    <div class="cvd"></div>
+                    <div class="cvd"></div>
+                    <div class="cvd"></div>
+                  </div>
+                </div>
+                <div class="cv-mock">
+                  <div class="cv-mock-accent"></div>
+                  <div class="cv-mock-name">Anindita Mutiara Ramadhani</div>
+                  <div class="cv-mock-role">
+                    Graphic Designer &amp; UI/UX Developer
+                  </div>
+                  <div class="cv-mock-hr"></div>
+                  <div class="cv-mock-sec">
+                    <div class="cv-mock-lbl">Education</div>
+                    <div class="cv-ln f"></div>
+                    <div class="cv-ln m"></div>
+                    <div class="cv-ln s"></div>
+                  </div>
+                  <div class="cv-mock-sec">
+                    <div class="cv-mock-lbl">Experience</div>
+                    <div class="cv-ln f"></div>
+                    <div class="cv-ln m"></div>
+                    <div class="cv-ln f"></div>
+                    <div class="cv-ln m"></div>
+                  </div>
+                  <div class="cv-mock-sec">
+                    <div class="cv-mock-lbl">Skills</div>
+                    <div class="cv-ln s"></div>
+                    <div class="cv-ln m"></div>
+                    <div class="cv-ln f"></div>
+                  </div>
+                  <div class="cv-mock-sec">
+                    <div class="cv-mock-lbl">Certifications</div>
+                    <div class="cv-ln m"></div>
+                    <div class="cv-ln s"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="cv-actions">
+                <a
+                  href="CV - Anindita Mutiara R.pdf"
+                  download
+                  class="btn btn-gold"
+                  ><svg viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M7 1v8M4 7l3 3 3-3M2 11h10"
+                      stroke="currentColor"
+                      stroke-width="1.3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    /></svg
+                  >Download PDF</a
+                >
+                <a
+                  href="CV - Anindita Mutiara R.pdf"
+                  target="_blank"
+                  class="btn"
+                  ><svg viewBox="0 0 14 14" fill="none">
+                    <path
+                      d="M2 2h10v10H2zM5 7h4M7 5v4"
+                      stroke="currentColor"
+                      stroke-width="1.1"
+                      stroke-linecap="round"
+                    /></svg
+                  >View full PDF</a
+                >
+                <p class="cv-note">
+                  Keep <code>CV - Anindita Mutiara R.pdf</code> in the same
+                  folder.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <div class="footer-grid">
+            <div>
+              <span class="footer-logo"
+                ><em>Anindita</em> Mutiara Ramadhani</span
+              >
+              <p class="footer-sub">
+                Aspiring Graphic Designer &amp; UI/UX Developer based in Kuala
+                Lumpur.
+              </p>
+            </div>
+            <div>
+              <div class="fc-title">Get in touch</div>
+              <a href="mailto:aninditamutiara.r@gmail.com" class="fc-email"
+                >aninditamutiara.r@gmail.com</a
+              >
+              <div class="socials">
+                <a href="tel:+60182890913">+60 18-289 0913</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>&copy; 2026 Anindita Mutiara Ramadhani.</span
+            ><span>Kuala Lumpur, Malaysia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /main -->
+
+    <script>
+      /* ─── NAV ─── */
+      const PAGES = [
+        {
+          id: "dashboard",
+          label: "Overview",
+          icon: '<svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="1" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>',
+        },
+        {
+          id: "about",
+          label: "About Me",
+          icon: '<svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M2 14c0-3.314 2.686-6 6-6s6 2.686 6 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>',
+        },
+        {
+          id: "projects",
+          label: "Projects",
+          icon: '<svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 15h6M8 11v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>',
+        },
+        {
+          id: "experience",
+          label: "Experience",
+          icon: '<svg viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M5 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M5 9h6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>',
+        },
+        {
+          id: "achievements",
+          label: "Achievements",
+          icon: '<svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="7" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M5 12.5 8 15l3-2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+        },
+        {
+          id: "cv",
+          label: "CV",
+          icon: '<svg viewBox="0 0 16 16" fill="none"><rect x="3" y="1" width="10" height="14" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M6 5h4M6 8h4M6 11h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>',
+        },
+      ];
+      const sideNav = document.getElementById("sideNav");
+      const topbarNav = document.getElementById("topbarNav");
+      PAGES.forEach((p) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="#" data-page="${p.id}"><span class="nav-icon">${p.icon}</span>${p.label}</a>`;
+        sideNav.appendChild(li);
+        const a = document.createElement("a");
+        a.href = "#";
+        a.dataset.page = p.id;
+        a.textContent = p.label;
+        topbarNav.appendChild(a);
+      });
+      function showPage(id) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll("[data-page]")
+          .forEach((a) => a.classList.remove("active"));
+        const pg = document.getElementById("page-" + id);
+        if (pg) pg.classList.add("active");
+        document
+          .querySelectorAll(`[data-page="${id}"]`)
+          .forEach((a) => a.classList.add("active"));
+        window.scrollTo(0, 0);
+      }
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest("[data-page]");
+        if (a) {
+          e.preventDefault();
+          showPage(a.dataset.page);
+        }
+        const fb = e.target.closest(".fbtn");
+        if (fb) {
+          document
+            .querySelectorAll(".fbtn")
+            .forEach((b) => b.classList.remove("on"));
+          fb.classList.add("on");
+          const cat = fb.dataset.cat;
+          document.querySelectorAll(".proj-card").forEach((c) => {
+            c.style.display =
+              cat === "all" || (c.dataset.cats || "").includes(cat)
+                ? ""
+                : "none";
+          });
+        }
+      });
+
+      /* ─── SVG HELPERS ─── */
+      function lavSVG(variant) {
+        const svgs = {
+          web1: `<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <rect width="400" height="225" fill="#f3f0fb"/>
+      <rect x="0" y="0" width="400" height="42" fill="#ece7f8"/>
+      <circle cx="18" cy="21" r="6" fill="#d4b8f0"/>
+      <circle cx="36" cy="21" r="6" fill="#c8a8e8"/>
+      <circle cx="54" cy="21" r="6" fill="#bca0e0"/>
+      <rect x="80" y="14" width="80" height="14" rx="7" fill="#d4b8f0"/>
+      <rect x="270" y="14" width="50" height="14" rx="7" fill="#a87fc8"/>
+      <rect x="330" y="14" width="50" height="14" rx="7" fill="#7c5cbf"/>
+      <ellipse cx="200" cy="130" rx="80" ry="55" fill="#e4ddf5"/>
+      <ellipse cx="200" cy="120" rx="55" ry="38" fill="#d4c0f0"/>
+      <ellipse cx="200" cy="112" rx="30" ry="22" fill="#c0a8e8"/>
+      <circle cx="200" cy="108" r="12" fill="#7c5cbf"/>
+      <rect x="40" y="80" width="60" height="90" rx="8" fill="#ddd4f8" opacity="0.7"/>
+      <rect x="300" y="90" width="60" height="80" rx="8" fill="#ddd4f8" opacity="0.7"/>
+      <path d="M200 60 Q240 80 280 70 Q260 110 200 108 Q140 110 120 70 Q160 80 200 60Z" fill="#c8b0ec" opacity="0.5"/>
+      <rect x="150" y="185" width="100" height="12" rx="6" fill="#c8b0ec"/>
+      <rect x="170" y="203" width="60" height="8" rx="4" fill="#d4b8f0"/>
+    </svg>`,
+          web2: `<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <rect width="400" height="225" fill="#faf8ff"/>
+      <rect x="0" y="0" width="120" height="225" fill="#f3f0fb"/>
+      <circle cx="60" cy="55" r="32" fill="#d4b8f0"/>
+      <rect x="20" y="100" width="80" height="8" rx="4" fill="#c8a8e8"/>
+      <rect x="30" y="116" width="60" height="6" rx="3" fill="#ddd4f8"/>
+      <rect x="25" y="140" width="70" height="6" rx="3" fill="#ddd4f8"/>
+      <rect x="25" y="154" width="55" height="6" rx="3" fill="#ddd4f8"/>
+      <rect x="25" y="168" width="65" height="6" rx="3" fill="#ddd4f8"/>
+      <rect x="140" y="20" width="240" height="30" rx="6" fill="#ece7f8"/>
+      <rect x="140" y="62" width="110" height="70" rx="8" fill="#e4ddf5"/>
+      <rect x="265" y="62" width="115" height="70" rx="8" fill="#e4ddf5"/>
+      <rect x="140" y="148" width="240" height="14" rx="4" fill="#ddd4f8"/>
+      <rect x="140" y="168" width="200" height="10" rx="4" fill="#e4ddf5"/>
+      <rect x="140" y="184" width="220" height="10" rx="4" fill="#e4ddf5"/>
+      <rect x="140" y="200" width="180" height="10" rx="4" fill="#e4ddf5"/>
+      <circle cx="168" cy="97" r="18" fill="#c0a8e8"/>
+      <circle cx="293" cy="97" r="18" fill="#c0a8e8"/>
+    </svg>`,
+          web3: `<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <rect width="400" height="225" fill="#f8f6ff"/>
+      <rect x="0" y="0" width="400" height="225" fill="url(#wg3)"/>
+      <defs><linearGradient id="wg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f3f0fb"/><stop offset="100%" stop-color="#e4ddf5"/></linearGradient></defs>
+      <rect x="30" y="30" width="340" height="165" rx="12" fill="#fff" opacity="0.8"/>
+      <circle cx="200" cy="80" r="36" fill="#d4b8f0"/>
+      <circle cx="200" cy="72" r="22" fill="#c0a8e8"/>
+      <circle cx="200" cy="68" r="12" fill="#7c5cbf"/>
+      <rect x="150" y="124" width="100" height="10" rx="5" fill="#c8a8e8"/>
+      <rect x="170" y="140" width="60" height="7" rx="3" fill="#ddd4f8"/>
+      <rect x="80" y="160" width="70" height="24" rx="12" fill="#7c5cbf"/>
+      <rect x="250" y="160" width="70" height="24" rx="12" fill="#ece7f8"/>
+      <rect x="92" y="168" width="46" height="8" rx="4" fill="#fff"/>
+      <rect x="262" y="168" width="46" height="8" rx="4" fill="#c8a8e8"/>
+    </svg>`,
+          design: `<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs><linearGradient id="dg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0e8f8"/><stop offset="100%" stop-color="#d4b8f0"/></linearGradient></defs>
+      <rect width="400" height="225" fill="url(#dg1)"/>
+      <ellipse cx="120" cy="112" rx="70" ry="50" fill="rgba(168,127,200,0.35)"/>
+      <ellipse cx="280" cy="112" rx="70" ry="50" fill="rgba(124,92,191,0.28)"/>
+      <ellipse cx="200" cy="112" rx="55" ry="40" fill="rgba(200,168,240,0.4)"/>
+    </svg>`,
+          interactive: `<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs><linearGradient id="ig1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e8e4f8"/><stop offset="100%" stop-color="#c8baf0"/></linearGradient></defs>
+      <rect width="400" height="225" fill="url(#ig1)"/>
+      <polygon points="200,40 260,160 140,160" fill="rgba(124,92,191,0.4)"/>
+      <circle cx="200" cy="145" r="40" fill="rgba(168,127,200,0.35)"/>
+      <rect x="140" y="100" width="120" height="80" rx="10" fill="rgba(200,184,240,0.4)"/>
+    </svg>`,
+          "3d": `<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs><linearGradient id="tdg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#e8f4f8"/><stop offset="100%" stop-color="#b8d8f0"/></linearGradient></defs>
+      <rect width="400" height="225" fill="url(#tdg)"/>
+      <polygon points="200,40 310,150 90,150" fill="rgba(100,160,220,0.35)"/>
+      <polygon points="200,40 310,150 200,130" fill="rgba(124,92,191,0.3)"/>
+      <ellipse cx="200" cy="150" rx="110" ry="20" fill="rgba(140,110,200,0.2)"/>
+    </svg>`,
+          dev: `<svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <defs><linearGradient id="devg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f0f8e8"/><stop offset="100%" stop-color="#c8f0b8"/></linearGradient></defs>
+      <rect width="400" height="225" fill="url(#devg)"/>
+      <rect x="60" y="50" width="280" height="130" rx="10" fill="rgba(255,255,255,0.6)"/>
+      <rect x="75" y="65" width="80" height="8" rx="4" fill="rgba(127,200,127,0.8)"/>
+      <rect x="75" y="82" width="200" height="6" rx="3" fill="rgba(124,92,191,0.4)"/>
+      <rect x="75" y="96" width="160" height="6" rx="3" fill="rgba(100,180,100,0.5)"/>
+      <rect x="95" y="110" width="140" height="6" rx="3" fill="rgba(180,120,80,0.5)"/>
+      <rect x="95" y="124" width="120" height="6" rx="3" fill="rgba(124,92,191,0.35)"/>
+      <rect x="75" y="138" width="80" height="6" rx="3" fill="rgba(100,180,100,0.5)"/>
+      <rect x="75" y="152" width="100" height="6" rx="3" fill="rgba(180,120,80,0.4)"/>
+    </svg>`,
+        };
+        return svgs[variant] || svgs["design"];
+      }
+
+      /* ─── PROJECT DATA ─── */
+      const PROJECTS = [
+        // ── GRAPHIC DESIGN ──────────────────────────────────────────────────
+        {
+          id: "p1",
+          cat: "design",
+          num: "GD 01",
+          type: "Graphic Design · Adobe Photoshop",
+          title: "Brochures",
+          svgVariant: "design",
+          bg: "linear-gradient(135deg,#f0e8f8,#d4b8f0)",
+          thumbImg: "Brochure Front Page.jpeg",
+          heroImg:  "Brochure Front Page.jpeg",
+          desc: "Designed professional brochures for small businesses to enhance their marketing materials. Each brochure was crafted with careful attention to layout hierarchy, typography, and brand consistency — delivering a polished print-ready result that communicates the client's identity clearly.",
+          tags: ["Adobe Photoshop", "Print Design", "Layout", "Typography"],
+          photos: [
+            "Brochure Back Page.jpeg",
+            "Brochure Front Page.jpeg",
+            "Brochure Logo.jpeg",
+          ],
+        },
+        {
+          id: "p2",
+          cat: "design",
+          num: "GD 02",
+          type: "Graphic Design · Adobe Photoshop",
+          title: "Business Cards &amp; Logos",
+          svgVariant: "design",
+          bg: "linear-gradient(135deg,#f8e8f0,#f0b8d4)",
+          thumbImg: "Business Card 1.png",
+          heroImg:  "Business Card 1.png",
+          desc: "Created commissioned business cards and logos for clients using Adobe Photoshop, balancing clean aesthetics with professional print specifications. Each design reflected the client's brand personality — considering colour, texture, font choice, and finish to produce a memorable first impression.",
+          tags: ["Adobe Photoshop", "Business Cards", "Print", "Branding"],
+          photos: [
+            "2Seas Logo.png",
+            "Business Card 1.png",
+            "Business Card 3.png",
+            "Liftie Logo.png",
+          ],
+        },
+        // ── WEB & UI ────────────────────────────────────────────────────────
+        {
+          id: "p4",
+          cat: "web",
+          num: "WEB 01",
+          type: "Web Design · HTML & CSS",
+          title: "Tourism Website",
+          svgVariant: "web1",
+          bg: "linear-gradient(135deg,#e8f8f0,#b8f0d4)",
+          thumbImg: "Tourism Website Main.png",
+          heroImg:  "Tourism Website Main.png",
+          desc: "Designed and developed a tourism website using Visual Studio with HTML and CSS. The project focused on creating an engaging, visually appealing layout that guides visitors through destination highlights with intuitive navigation, clear information hierarchy, and a welcoming aesthetic suited to travel discovery.",
+          tags: ["HTML & CSS", "Web Design", "Visual Studio", "UI Design"],
+          photos: [
+            "Tourism Website Main.png",
+            "Tourism Website 3.png",
+            "Tourism Website 4.png",
+          ],
+        },
+        {
+          id: "p5",
+          cat: "web",
+          num: "WEB 02",
+          type: "Web Design · HTML & CSS",
+          title: "Portfolio Website",
+          svgVariant: "web2",
+          bg: "linear-gradient(135deg,#f0e8f8,#d4b8f0)",
+          thumbImg: "Portfolio Website (1).png",
+          heroImg:  "Portfolio Website (1).png",
+          desc: "Designed and developed a personal portfolio website using Visual Studio with HTML and CSS. The project involved planning the information architecture, selecting a cohesive visual theme, and implementing a clean, responsive layout that presents creative work in a structured and professional manner.",
+          tags: ["HTML & CSS", "Portfolio", "UI Design", "Visual Studio"],
+          photos: [
+            "Portfolio Website (1).png",
+            "Portfolio Website (2).png",
+            "Portfolio Website (3).png",
+            "Portfolio Website (4).png",
+          ],
+        },
+        {
+          id: "p14",
+          cat: "web",
+          num: "WEB 03",
+          type: "Web Design · HTML & CSS",
+          title: "Cafe Website",
+          svgVariant: "web3",
+          bg: "linear-gradient(135deg,#f8f0e8,#f0d4b8)",
+          thumbImg: "Cafe Website (4).png",
+          heroImg:  "Cafe Website (4).png",
+          desc: "Designed and developed a cafe website, creating a warm and inviting digital presence that reflects the cafe's brand identity. The site features an elegant layout with menu sections, visual highlights, and intuitive navigation to attract and engage customers.",
+          tags: ["HTML & CSS", "Web Design", "UI Design", "Cafe"],
+          photos: [
+            "Cafe Website (1).png",
+            "Cafe Website (2).png",
+            "Cafe Website (3).png",
+            "Cafe Website (4).png",
+          ],
+        },
+        // ── INTERACTIVE / 3D ────────────────────────────────────────────────
+        {
+          id: "p7",
+          cat: "interactive",
+          num: "INT 01",
+          type: "Interactive Media · Adobe Animate",
+          title: "E-Portfolio",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#e8f0f8,#b8c8f0)",
+          thumbImg: "E-Portfolio Main.png",
+          heroImg:  "E-Portfolio Main.png",
+          desc: "Developed an interactive E-portfolio using Adobe Animate, incorporating clickable navigation, animated transitions, and curated content sections to present creative work dynamically. The project explored how motion and interactivity can elevate a standard portfolio into an engaging digital experience.",
+          tags: ["Adobe Animate", "Interactive Design", "Portfolio", "Motion"],
+          photos: [
+            "E-Portfolio Main.png",
+            "E-Portolio About Me.png",
+            "E-Portolio Home.png",
+          ],
+        },
+        {
+          id: "p8",
+          cat: "interactive",
+          num: "INT 02",
+          type: "Interactive Media · Adobe Animate",
+          title: "E-Comic",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#f8e8f0,#f0b8d4)",
+          thumbImg: "E-Comic Main.png",
+          heroImg:  "E-Comic Main.png",
+          desc: "Created an interactive E-comic using Adobe Animate, combining sequential storytelling with clickable panels and animated elements for an engaging digital narrative experience. The project required balancing visual storytelling with technical interactivity to guide the reader through the story organically.",
+          tags: ["Adobe Animate", "Storytelling", "Interactive", "Narrative"],
+          photos: [
+            "E-Comic 1.png",
+            "E-Comic 2.png",
+            "E-Comic Main.png",
+          ],
+        },
+        {
+          id: "p15",
+          cat: "interactive",
+          num: "INT 03",
+          type: "Interactive Media · Adobe Animate",
+          title: "E-Menu",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#fef0e0,#f8d4a0)",
+          thumbImg: "Interactive Menu (5).png",
+          heroImg:  "Interactive Menu (5).png",
+          desc: "Designed and developed an interactive digital menu using Adobe Animate, creating an engaging and user-friendly experience for cafe or restaurant patrons. The menu features animated transitions, organised sections, and clear visual hierarchy to make browsing enjoyable and intuitive.",
+          tags: ["Adobe Animate", "Interactive Design", "UI Design", "Menu"],
+          photos: [
+            "Interactive Menu (3).png",
+            "Interactive Menu (4).png",
+            "Interactive Menu (5).png",
+          ],
+        },
+        {
+          id: "p9",
+          cat: "interactive",
+          num: "INT 04",
+          type: "Interactive Media · Adobe Animate",
+          title: "Animation",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#f0f8e8,#d4f0b8)",
+          thumbImg: "Animation Main.png",
+          heroImg:  "Animation Main.png",
+          desc: "Produced animated sequences using Adobe Animate, applying principles of motion, timing, and visual storytelling to create fluid and expressive character and object animations. The project covered keyframe animation, easing, and frame-by-frame techniques to achieve smooth, life-like movement.",
+          tags: ["Adobe Animate", "Animation", "Motion", "Character"],
+          photos: [
+            "Animation Main.png",
+            "Animation 2.png",
+            "Animation 4.png",
+          ],
+        },
+        {
+          id: "p10",
+          cat: "interactive",
+          num: "INT 05",
+          type: "3D Modelling · Zbrush",
+          title: "3D Character",
+          svgVariant: "3d",
+          bg: "linear-gradient(135deg,#e8e8f8,#c8b8f0)",
+          thumbImg: "April 26 Progress.png",
+          heroImg:  "Sketch.png",
+          desc: "Sculpted a detailed 3D character using Zbrush, applying digital sculpting techniques for organic forms, surface texture, and expressive character design. The project involved building the base mesh, refining anatomy, adding surface detail, and creating a compelling final pose that conveys personality.",
+          tags: ["Zbrush", "Digital Sculpting", "Character Design", "3D Art"],
+          photos: [
+            "Sketch.png",
+            "April 10 Progress.png",
+            "April 26 Progress.png",
+          ],
+        },
+        {
+          id: "p11",
+          cat: "interactive",
+          num: "INT 06",
+          type: "3D Modelling · 3ds Max",
+          title: "3D Mech",
+          svgVariant: "3d",
+          bg: "linear-gradient(135deg,#e8f4f8,#b8dcf0)",
+          thumbImg: "3D Mech Main.png",
+          heroImg:  "3D Mech Main.png",
+          desc: "Modelled a mechanical robot (mech) design using 3ds Max, focusing on hard-surface modelling techniques, structural detail, and mechanical design principles. The project explored the geometry of interlocking parts, panel lines, and the visual language of industrial machinery to create a believable mechanical form.",
+          tags: ["3ds Max", "Hard Surface", "3D Modelling", "Mechanical Design"],
+          photos: [
+            "3D Mech Main.png",
+            "3D Mech Main 2.png",
+            "3D Mech Main 3.png",
+            "3D Mech Main 4.png",
+          ],
+        },
+        // ── OTHERS ──────────────────────────────────────────────────────────
+        {
+          id: "p12",
+          cat: "others",
+          num: "OTH 01",
+          type: "Programming · Python",
+          title: "Administrative System",
+          svgVariant: "dev",
+          bg: "linear-gradient(135deg,#f0f8e8,#c8f0b8)",
+          thumbImg: "Data Analysis Main.png",
+          heroImg:  "Data Analysis Main.png",
+          desc: "Programmed a functional administrative system using Python, demonstrating back-end logic, data handling, and structured problem-solving through code. The system manages data input, storage, retrieval, and output — applying programming fundamentals in a practical, real-world context.",
+          tags: ["Python", "Backend", "Systems Design", "Data Handling"],
+          photos: [
+            "Data Analysis Main.png",
+            "Data Analysis 2.png",
+            "Data Analysis 3.png",
+          ],
+        },
+        {
+          id: "p16",
+          cat: "others",
+          num: "OTH 02",
+          type: "Event Design · Social Media",
+          title: "Events",
+          svgVariant: "design",
+          bg: "linear-gradient(135deg,#fff0e8,#f8c8a0)",
+          thumbImg: "AI Week 2026 Poster.png",
+          heroImg:  "AI Week 2026 Poster.png",
+          desc: "Designed posters, social media content, and promotional materials for various events including APU AI Week 2026 and AIC Chutes Workshop. Each piece was crafted to communicate event identity clearly and attract audience engagement across digital and print platforms.",
+          tags: ["Event Design", "Social Media", "Poster Design", "Branding"],
+          photos: [
+            "AI Week 2026 Poster.png",
+            "CC2.png",
+            "Chutes AI Workshop Post 1.png",
+            "Chutes AI Workshop Post 2.png",
+            "Chutes AI Workshop Post 3.png",
+            "Divergent Thinking Poster.png",
+            "Instagram Post.png",
+            "Medal.png",
+          ],
+        },
+        {
+          id: "p17",
+          cat: "others",
+          num: "OTH 03",
+          type: "Digital Art · Personal",
+          title: "My Art",
+          svgVariant: "design",
+          bg: "linear-gradient(135deg,#f8e8f8,#e8b8e8)",
+          thumbImg: "My Art 19.png",
+          heroImg:  "My Art 19.png",
+          desc: "A personal collection of original digital artworks exploring character design, illustration, and creative expression. Each piece reflects a distinct style and mood, showcasing growth in artistic technique, colour theory, and storytelling through visual art.",
+          tags: ["Digital Art", "Illustration", "Character Design", "Personal"],
+          photos: [
+            "My Art 3.png",
+            "My Art 9.png",
+            "My Art 13.png",
+            "My Art 16.png",
+            "My Art 17.png",
+          ],
+        },
+        // ── VIDEO / AUDIO ────────────────────────────────────────────────────
+        {
+          id: "m2",
+          cat: "media",
+          num: "MED 02",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "DnD Character Edit 1",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Expedition 33 Edit 1.mp4",
+          desc: "",
+          tags: ["Video Editing", "Series", "Motion", "Audio Sync"],
+          photos: ["Expedition 33 Edit 1.mp4"],
+        },
+        {
+          id: "m3",
+          cat: "media",
+          num: "MED 03",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "DnD Character Edit 2",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Expedition 33 Edit 2.mp4",
+          desc: "",
+          tags: ["Video Editing", "Series", "Motion", "Audio Sync"],
+          photos: ["Expedition 33 Edit 2.mp4"],
+        },
+        {
+          id: "m4",
+          cat: "media",
+          num: "MED 04",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "DnD Character Edit 3",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Expedition 33 Edit 3.mp4",
+          desc: "",
+          tags: ["Video Editing", "Series", "Motion", "Audio Sync"],
+          photos: ["Expedition 33 Edit 3.mp4"],
+        },
+        {
+          id: "m5",
+          cat: "media",
+          num: "MED 05",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "DnD Character Edit 4",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Expedition 33 Edit 4.mp4",
+          desc: "",
+          tags: ["Video Editing", "Series", "Motion", "Audio Sync"],
+          photos: ["Expedition 33 Edit 4.mp4"],
+        },
+        {
+          id: "m6",
+          cat: "media",
+          num: "MED 06",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "DnD Character Edit 5",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Expedition 33 Edit 5.mp4",
+          desc: "",
+          tags: ["Video Editing", "Series", "Motion", "Audio Sync"],
+          photos: ["Expedition 33 Edit 5.mp4"],
+        },
+        {
+          id: "m7",
+          cat: "media",
+          num: "MED 07",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "DnD Character Edit 6",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Expedition 33 Edit 6.mp4",
+          desc: "",
+          tags: ["Video Editing", "Series", "Motion", "Audio Sync"],
+          photos: ["Expedition 33 Edit 6.mp4"],
+        },
+        {
+          id: "m9",
+          cat: "media",
+          num: "MED 09",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "Next To Normal Edit 1",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Next To Normal Edit 1.mp4",
+          desc: "",
+          tags: ["Video Editing", "Musical", "Emotional", "Storytelling"],
+          photos: ["Next To Normal Edit 1.mp4"],
+        },
+        {
+          id: "m10",
+          cat: "media",
+          num: "MED 10",
+          type: "Video Edit · Adobe Premiere / CapCut",
+          title: "Next To Normal Edit 2",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a2e,#2a2a4e)",
+          thumbImg: "Next to Normal Edit 2.mp4",
+          desc: "",
+          tags: ["Video Editing", "Musical", "Emotional", "Storytelling"],
+          photos: ["Next to Normal Edit 2.mp4"],
+          },
+          {
+              id: "m8",
+              cat: "media",
+              num: "MED 08",
+              type: "Audio Production · Assignment",
+              title: "KFC Radio Advertisement",
+              svgVariant: "interactive",
+              bg: "linear-gradient(135deg,#1a1a3e,#2a1a4e)",
+              thumbImg: "Group 1 - Final Assignment.mp3",
+              desc: "",
+              tags: ["Audio Production", "Sound Design", "Collaboration", "Assignment"],
+              photos: ["Group 1 - Final Assignment.mp3"],
+          },
+        {
+          id: "m11",
+          cat: "media",
+          num: "MED 11",
+          type: "Electronic Music",
+          title: "Composed Electronic Music",
+          svgVariant: "interactive",
+          bg: "linear-gradient(135deg,#1a1a3e,#2a1a4e)",
+          thumbImg: "SYNTH Implementation - Anindita Mutiara R (TP078129).mp3",
+          desc: "",
+          tags: ["SYNTH", "Audio Production", "Sound Design", "Electronic Music"],
+          photos: ["SYNTH Implementation - Anindita Mutiara R (TP078129).mp3"],
+        },
+      ];
+
+      /* ─── BUILD PROJECT CARDS ─── */
+      function buildProjCards() {
+        const grid = document.getElementById("projGrid");
+        grid.innerHTML = "";
+        PROJECTS.forEach((p) => {
+          const card = document.createElement("div");
+          card.className = "proj-card";
+          card.dataset.cats = p.cat;
+
+          let thumbInner, thumbBg;
+          if (p.thumbImg && isVideoSrc(p.thumbImg)) {
+            thumbBg = "#0d0d1a";
+            thumbInner = `<video src="${p.thumbImg}" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;"></video>`;
+          } else if (p.thumbImg && isAudioSrc(p.thumbImg)) {
+            thumbBg = "linear-gradient(135deg,#1a1a3e,#2a1a4e)";
+            thumbInner = `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:8px;"><div style="font-size:2.8rem;">🎵</div><div style="color:#c8b0f0;font-size:0.7rem;text-align:center;padding:0 8px;">${p.title}</div></div>`;
+          } else if (p.thumbImg && isImageSrc(p.thumbImg)) {
+            thumbBg = "#1a1a2e";
+            thumbInner = `<img src="${p.thumbImg}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+          } else {
+            thumbBg = p.bg;
+            thumbInner = lavSVG(p.svgVariant);
+          }
+
+          card.innerHTML = `
+      <span class="proj-num">${p.num}</span>
+      <div class="proj-thumb" style="background:${thumbBg};position:relative;overflow:hidden">
+        ${thumbInner}
+      </div>
+      <span class="proj-type">${p.type}</span>
+      <h3 class="proj-title">${p.title}</h3>
+      <p class="proj-desc">${p.desc.substring(0, 120)}...</p>
+      <div class="proj-tags">${p.tags.map((t) => `<span class="ptag">${t}</span>`).join("")}</div>
+      <div class="proj-hint">Click to view details &amp; media &#8594;</div>
+    `;
+          card.addEventListener("click", () => openProjModal(p));
+          grid.appendChild(card);
+        });
+      }
+
+      /* ─── PROJECT MODAL ─── */
+      // Helper: returns true if value is an image path (not a CSS gradient)
+      function isImageSrc(val) {
+        return val && !val.startsWith("linear-gradient") && !val.startsWith("radial-gradient");
+      }
+      function isVideoSrc(val) {
+        return val && /\.(mp4|webm|ogg|mov)$/i.test(val);
+      }
+      function isAudioSrc(val) {
+        return val && /\.(mp3|wav|ogg|aac|flac)$/i.test(val);
+      }
+
+      function openProjModal(p) {
+        const hero = document.getElementById("projModalHero");
+        const isMedia = p.cat === "media";
+
+        if (isMedia && isVideoSrc(p.photos[0])) {
+          hero.style.background = "#000";
+          hero.style.height = "360px";
+          hero.innerHTML = `<video src="${p.photos[0]}" controls autoplay style="width:100%;height:100%;object-fit:contain;display:block;background:#000;" playsinline></video>`;
+        } else if (isMedia && isAudioSrc(p.photos[0])) {
+          hero.style.background = "linear-gradient(135deg,#1a1a3e,#2a1a4e)";
+          hero.style.height = "260px";
+          hero.innerHTML = `
+            <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:1.5rem;padding:2rem;">
+              <div style="font-size:4rem;">🎵</div>
+              <div style="color:#e0d0ff;font-size:1rem;text-align:center;font-family:var(--serif);">${p.title}</div>
+              <audio src="${p.photos[0]}" controls style="width:80%;max-width:420px;"></audio>
+            </div>`;
+        } else if (p.heroImg && isImageSrc(p.heroImg)) {
+          hero.style.background = "#1a1a2e";
+          hero.style.height = "";
+          hero.innerHTML = `<img src="${p.heroImg}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+        } else {
+          hero.style.background = p.bg;
+          hero.style.height = "";
+          hero.innerHTML = `<div style="width:100%;height:100%;position:relative">${lavSVG(p.svgVariant)}</div>`;
+        }
+
+        document.getElementById("projModalTag").textContent = p.type;
+        document.getElementById("projModalTitle").textContent = p.title;
+
+        // Hide description for media projects
+        const descEl = document.getElementById("projModalDesc");
+        if (isMedia) {
+          descEl.textContent = "";
+          descEl.style.display = "none";
+        } else {
+          descEl.textContent = p.desc;
+          descEl.style.display = "";
+        }
+
+        document.getElementById("projModalTags").innerHTML = p.tags
+          .map((t) => `<span class="ptag">${t}</span>`)
+          .join("");
+
+        // Hide photo strip for media — video/audio already plays in hero
+        const photos = document.getElementById("projModalPhotos");
+        if (isMedia) {
+          photos.innerHTML = "";
+        } else {
+          photos.innerHTML = p.photos
+            .map((ph, i) => {
+              if (isVideoSrc(ph)) {
+                return `<div class="modal-photo" style="background:#0d0d1a;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+                  <video src="${ph}" controls style="width:100%;height:100%;object-fit:contain;display:block;border-radius:inherit;"></video>
+                </div>`;
+              } else if (isAudioSrc(ph)) {
+                const label = ph.replace(/\.[^.]+$/, "").replace("Contents/","");
+                return `<div class="modal-photo" style="background:linear-gradient(135deg,#1a1a3e,#2a1a4e);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:16px;">
+                  <div style="font-size:2.5rem;">🎵</div>
+                  <div style="color:#e0d0ff;font-size:0.75rem;text-align:center;word-break:break-word;padding:0 8px;">${label}</div>
+                  <audio src="${ph}" controls style="width:90%;max-width:260px;"></audio>
+                </div>`;
+              } else if (isImageSrc(ph)) {
+                return `<div class="modal-photo" style="background:#1a1a2e;overflow:hidden">
+                  <img src="${ph}" alt="Project photo ${i+1}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+                </div>`;
+              } else {
+                return `<div class="modal-photo" style="background:${ph}">
+                  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">
+                    ${lavSVG(i % 2 === 0 ? p.svgVariant : "design")}
+                  </div>
+                </div>`;
+              }
+            })
+            .join("");
+        }
+
+        document.getElementById("projModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      document
+        .getElementById("projModalClose")
+        .addEventListener("click", closeProjModal);
+      document.getElementById("projModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeProjModal();
+      });
+      function closeProjModal() {
+        document.getElementById("projModal").classList.remove("open");
+        document.body.style.overflow = "";
+        // Stop any playing media when modal closes
+        document.querySelectorAll("#projModalHero video, #projModalHero audio").forEach(el => {
+          el.pause();
+          el.currentTime = 0;
+        });
+      }
+
+      /* ─── HIGHLIGHTS DATA ─── */
+      const HIGHLIGHTS = [
+        {
+          label: "Iftar To Go",
+          cat: "Volunteer",
+          bg: "Iftar To Go.jpg",
+          desc: "Assisted in preparing, packaging, and distributing meals to community members in need during Ramadan. Contributed to a meaningful charity initiative focused on food security and community care for those who needed it most.",
+        },
+        {
+          label: "Adapted Classwide Peer Tutoring (Math)",
+          cat: "Peer Leader",
+          bg: "Math Tutoring.jpg",
+          desc: "Tutored students using tailored teaching methods to suit different learning styles, contributing to all participants successfully passing the math exam.",
+        },
+        {
+          label: "SPCA Volunteer",
+          cat: "Volunteer",
+          bg: "SPCA Volunteer.jpg",
+          desc: "Volunteered at the SPCA animal shelter, assisting with daily animal care, feeding, cleaning, and socializing rescued animals while supporting rehabilitation and adoption efforts.",
+        },
+      ];
+
+      function buildHighlights() {
+        const g = document.getElementById("highlightsGallery");
+        g.innerHTML = "";
+        HIGHLIGHTS.forEach((h) => {
+          const item = document.createElement("div");
+          item.className = "gallery-item";
+          if (isImageSrc(h.bg)) {
+            item.innerHTML = `<img src="${h.bg}" alt="${h.label}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;"><div class="gallery-overlay"><span class="gallery-label">${h.label}</span></div>`;
+          } else {
+            item.innerHTML = `<div class="gallery-bg" style="background:${h.bg};position:absolute;inset:0"></div><div class="gallery-overlay"><span class="gallery-label">${h.label}</span></div>`;
+          }
+          item.addEventListener("click", () => openAchModal(h));
+          g.appendChild(item);
+        });
+      }
+
+      /* ─── CERT DATA ─── */
+      const CERTS = [
+        {
+          imgBg: "UI UX Workshop E-Cert.png",
+          name: "UI/UX Workshop",
+          certOrg: "Workshop Certificate",
+          desc: "Practiced UI/UX design principles including user research, wireframing, and prototyping. Created complete mobile interfaces in Figma, applying design thinking methodology throughout.",
+        },
+        {
+          imgBg: "RCAI E-Cert.jpg",
+          name: "Rocheston Certified AI Engineer",
+          certOrg: "Rocheston — RCAI",
+          desc: "Completed a 14-week program covering AI concepts, machine learning fundamentals, and practical AI application development using Rocheston's AI platforms and frameworks.",
+        },
+        {
+          imgBg: "Azure E-Cert.jpg",
+          name: "Microsoft Azure Fundamentals",
+          certOrg: "Microsoft — AZ-900",
+          desc: "Completed a 14-week program learning cloud computing fundamentals, core Azure services, security concepts, and the use of Microsoft Azure infrastructure and solutions.",
+        },
+        {
+          imgBg: "AIC Chutes E-Certificate.jpg",
+          name: "AIC Chutes Certification",
+          certOrg: "AIC — Workshop",
+          desc: "Designed social media posts and assisted in photography and videography to document the workshop effectively, producing promotional content and a visual record of the event.",
+        },
+        {
+          imgBg: "Peer Leader.jpg",
+          name: "Adapted Classwide Peer Tutoring (Math)",
+          certOrg: "APU Mathematics",
+          desc: "Tutored students using tailored teaching methods to suit different learning styles, contributing to all participants successfully passing the math exam.",
+        },
+        {
+          imgBg: "PEMUDA CUP 2025 E-CERT.jpg",
+          name: "Pemuda Cup 2025 Certification",
+          certOrg: "Pemuda Cup — Event Design",
+          desc: "Created posters, medals, merchandise, and social media content to support event branding and promotion. Delivered cohesive visual identity materials across print and digital channels.",
+        },
+        {
+          imgBg: "NEON RUN CERT.png",
+          name: "Neon Run 2025 Certification",
+          certOrg: "Neon Run Malaysia",
+          desc: "Participated in a 5 km charity run, contributing to fundraising for a meaningful cause and demonstrating community engagement and commitment to social impact.",
+        },
+        {
+          imgBg: "SPCA Volunteer Certification.png",
+          name: "SPCA Volunteer Certification",
+          certOrg: "SPCA",
+          desc: "Volunteered at the SPCA animal shelter, assisting with daily animal care, feeding, cleaning, and socializing rescued animals while supporting rehabilitation and adoption efforts.",
+        },
+        {
+          imgBg: "MATH MOSAIC E-CERT.jpg",
+          name: "Math Mosaic",
+          certOrg: "APU Mathematics",
+          desc: "Participated in a mathematics competition focused on problem-solving, logical reasoning, and analytical thinking, applying mathematical concepts to real-world scenarios.",
+        },
+        {
+          imgBg: "Math Tutoring Cert.jpg",
+          name: "Math Tutoring Certificate",
+          certOrg: "APU Mathematics",
+          desc: "Received certification for successfully completing the Adapted Classwide Peer Tutoring programme, supporting fellow students through personalised math tutoring sessions.",
+        },
+        {
+          imgBg: "JobStreet Event Certificate (43).jpg",
+          name: "JobStreet",
+          certOrg: "APU",
+          desc: "Attended a career-focused event featuring industry insights, job market trends, and professional development opportunities to enhance employability skills.",
+        },
+      ];
+
+      let certIdx = 0;
+      function buildCerts() {
+        const track = document.getElementById("certTrack");
+        const dotsWrap = document.getElementById("certDots");
+        track.innerHTML = "";
+        dotsWrap.innerHTML = "";
+        CERTS.forEach((c, i) => {
+          const slide = document.createElement("div");
+          slide.className = "cert-slide";
+          slide.innerHTML = `
+      <div class="cert-img-side" style="${isImageSrc(c.imgBg) ? `background:#f5f5f5` : `background:${c.imgBg}`}; position:relative; overflow:hidden;">
+        ${isImageSrc(c.imgBg)
+          ? `<img src="${c.imgBg}" alt="${c.name}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:12px;box-sizing:border-box;">`
+          : `<div class="cert-img-inner">
+               <div class="cert-img-badge" style="background:${c.badgeColor}">${c.abbr}</div>
+               <div class="cert-img-abbr">${c.abbr}</div>
+               <div class="cert-img-org">${c.org}</div>
+             </div>`
+        }
+      </div>
+      <div class="cert-info-side">
+        <div class="cert-info-name">${c.name}</div>
+        <div class="cert-info-org">${c.certOrg}</div>
+        <p class="cert-info-desc">${c.desc}</p>
+      </div>`;
+          slide.style.cursor = "pointer";
+          slide.addEventListener("click", () =>
+            openAchModal({
+              label: c.name,
+              cat: c.certOrg,
+              bg: c.imgBg,
+              desc: c.desc,
+            }),
+          );
+          track.appendChild(slide);
+          const d = document.createElement("div");
+          d.className = "cert-dot" + (i === 0 ? " active" : "");
+          d.addEventListener("click", () => goToSlide(i));
+          dotsWrap.appendChild(d);
+        });
+      }
+      function goToSlide(n) {
+        certIdx = n;
+        document.getElementById("certTrack").style.transform =
+          `translateX(-${n * 100}%)`;
+        document
+          .querySelectorAll(".cert-dot")
+          .forEach((d, i) => d.classList.toggle("active", i === n));
+      }
+      document
+        .getElementById("certPrev")
+        .addEventListener("click", () =>
+          goToSlide((certIdx - 1 + CERTS.length) % CERTS.length),
+        );
+      document
+        .getElementById("certNext")
+        .addEventListener("click", () =>
+          goToSlide((certIdx + 1) % CERTS.length),
+        );
+
+      /* ─── ACHIEVEMENT MODAL ─── */
+      function openAchModal(h) {
+        const hero = document.getElementById("achModalHero");
+        if (isImageSrc(h.bg)) {
+          hero.style.background = "#1a1a2e";
+          hero.style.backgroundImage = `url('${h.bg}')`;
+          hero.style.backgroundSize = "cover";
+          hero.style.backgroundPosition = "center";
+        } else {
+          hero.style.background = h.bg;
+          hero.style.backgroundImage = "";
+        }
+        document.getElementById("achModalTag").textContent = h.cat;
+        document.getElementById("achModalTitle").textContent = h.label;
+        document.getElementById("achModalDesc").textContent = h.desc;
+        document.getElementById("achModal").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      document
+        .getElementById("achModalClose")
+        .addEventListener("click", closeAchModal);
+      document.getElementById("achModal").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget) closeAchModal();
+      });
+      function closeAchModal() {
+        document.getElementById("achModal").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      /* ─── FILTER ─── */
+      document.addEventListener("click", (e) => {
+        const a = e.target.closest("[data-page]");
+        if (a) {
+          e.preventDefault();
+          showPage(a.dataset.page);
+        }
+        const fb = e.target.closest(".fbtn");
+        if (fb) {
+          document
+            .querySelectorAll(".fbtn")
+            .forEach((b) => b.classList.remove("on"));
+          fb.classList.add("on");
+          const cat = fb.dataset.cat;
+          document.querySelectorAll(".proj-card").forEach((c) => {
+            c.style.display =
+              cat === "all" || (c.dataset.cats || "").includes(cat)
+                ? ""
+                : "none";
+          });
+        }
+      });
+
+      /* ─── KEYBOARD ESC ─── */
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeProjModal();
+          closeAchModal();
+        }
+      });
+
+      /* ─── INIT ─── */
+      buildProjCards();
+      buildHighlights();
+      buildCerts();
+      showPage("dashboard");
+    </script>
+  </body>
+</html>
