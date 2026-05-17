@@ -1587,7 +1587,7 @@
         position: fixed;
         inset: 0;
         background: rgba(10, 8, 20, 0.92);
-        z-index: 500;
+        z-index: 600;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1625,7 +1625,7 @@
         align-items: center;
         justify-content: center;
         transition: background 0.2s;
-        z-index: 501;
+        z-index: 601;
       }
       .lightbox-close:hover {
         background: rgba(255,255,255,0.18);
@@ -1646,7 +1646,7 @@
         align-items: center;
         justify-content: center;
         transition: background 0.2s;
-        z-index: 501;
+        z-index: 601;
       }
       .lightbox-nav:hover {
         background: rgba(255,255,255,0.2);
@@ -1662,7 +1662,7 @@
         font-size: 0.75rem;
         letter-spacing: 0.12em;
         font-family: var(--sans);
-        z-index: 501;
+        z-index: 601;
       }
 
       @media (max-width: 900px) {
@@ -3474,10 +3474,10 @@
                 </div>`;
               } else if (isImageSrc(ph)) {
                 const lbIdx = imageSrcs.indexOf(ph);
-                return `<div class="modal-photo" style="background:#1a1a2e;overflow:hidden;cursor:zoom-in;position:relative;" data-lbidx="${lbIdx}" onclick="openLightbox(${JSON.stringify(imageSrcs)}, ${lbIdx})">
-                  <img src="${ph}" alt="Project photo ${i+1}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+                return `<div class="modal-photo lb-trigger" style="background:#1a1a2e;overflow:hidden;cursor:zoom-in;position:relative;" data-lbidx="${lbIdx}">
+                  <img src="${ph}" alt="Project photo ${i+1}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;pointer-events:none;">
                   <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;background:rgba(0,0,0,0.3);" class="photo-zoom-hint">
-                    <span style="color:#fff;font-size:1.4rem;">&#x2315;</span>
+                    <span style="color:#fff;font-size:1.6rem;">⤢</span>
                   </div>
                 </div>`;
               } else {
@@ -3495,6 +3495,14 @@
             const parent = hint.parentElement;
             parent.addEventListener("mouseenter", () => hint.style.opacity = "1");
             parent.addEventListener("mouseleave", () => hint.style.opacity = "0");
+          });
+
+          // Lightbox click handlers
+          photos.querySelectorAll(".lb-trigger").forEach(el => {
+            el.addEventListener("click", () => {
+              const idx = parseInt(el.dataset.lbidx, 10);
+              openLightbox(imageSrcs, idx);
+            });
           });
         }
 
@@ -3748,8 +3756,8 @@
 
       document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
       document.getElementById("lightbox").addEventListener("click", (e) => {
-        if (e.target === e.currentTarget || e.target === document.getElementById("lightboxImg")) {
-          if (e.target === document.getElementById("lightbox")) closeLightbox();
+        if (e.target === document.getElementById("lightbox") || e.target === document.getElementById("lightboxImg")) {
+          closeLightbox();
         }
       });
       document.getElementById("lightboxPrev").addEventListener("click", () => {
