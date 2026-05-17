@@ -1582,6 +1582,89 @@
         inset: 0;
       }
 
+      /* LIGHTBOX */
+      .lightbox-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 8, 20, 0.92);
+        z-index: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s;
+        backdrop-filter: blur(6px);
+      }
+      .lightbox-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .lightbox-img {
+        max-width: 92vw;
+        max-height: 88vh;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+        transition: transform 0.25s;
+        display: block;
+      }
+      .lightbox-close {
+        position: fixed;
+        top: 1.25rem;
+        right: 1.25rem;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.08);
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        z-index: 501;
+      }
+      .lightbox-close:hover {
+        background: rgba(255,255,255,0.18);
+      }
+      .lightbox-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.2);
+        background: rgba(255,255,255,0.08);
+        color: #fff;
+        font-size: 1.1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+        z-index: 501;
+      }
+      .lightbox-nav:hover {
+        background: rgba(255,255,255,0.2);
+      }
+      .lightbox-prev { left: 1rem; }
+      .lightbox-next { right: 1rem; }
+      .lightbox-counter {
+        position: fixed;
+        bottom: 1.25rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255,255,255,0.6);
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        font-family: var(--sans);
+        z-index: 501;
+      }
+
       @media (max-width: 900px) {
         .sidebar {
           display: none;
@@ -1686,6 +1769,15 @@
           <div class="modal-photos" id="projModalPhotos"></div>
         </div>
       </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">&#x2715;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8592;</button>
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
+      <button class="lightbox-nav lightbox-next" id="lightboxNext">&#8594;</button>
+      <div class="lightbox-counter" id="lightboxCounter"></div>
     </div>
 
     <!-- ACHIEVEMENT MODAL -->
@@ -3038,7 +3130,7 @@
           svgVariant: "3d",
           bg: "linear-gradient(135deg,#e8e8f8,#c8b8f0)",
             thumbImg: "lowpoly.png",
-          heroImg:  "Sketch.png",
+            heroImg:  "lowpoly.png",
           desc: "Sculpted a detailed 3D character using Zbrush, applying digital sculpting techniques for organic forms, surface texture, and expressive character design. The project involved building the base mesh, refining anatomy, adding surface detail, and creating a compelling final pose that conveys personality.",
           tags: ["Zbrush", "Digital Sculpting", "Character Design", "3D Art"],
           photos: [
@@ -3062,9 +3154,9 @@
           tags: ["3ds Max", "Hard Surface", "3D Modelling", "Mechanical Design"],
           photos: [
             "3D Mech Main.png",
-            "3D Mech Main 2.png",
-            "3D Mech Main 3.png",
-            "3D Mech Main 4.png",
+            "3D Mech 2.png",
+            "3D Mech 3.png",
+            "3D Mech 4.png",
           ],
         },
         // ── OTHERS ──────────────────────────────────────────────────────────
@@ -3083,7 +3175,7 @@
           photos: [
             "Data Analysis Main.png",
             "Data Analysis 2.png",
-            "Data Analysis 3.png",
+            "Data Analysis 4.png",
           ],
         },
         {
@@ -3127,6 +3219,7 @@
             "My Art 13.png",
             "My Art 16.png",
             "My Art 17.png",
+            "My Art 19.png",
           ],
         },
         // ── VIDEO / AUDIO ────────────────────────────────────────────────────
@@ -3363,6 +3456,9 @@
         if (isMedia) {
           photos.innerHTML = "";
         } else {
+          // Collect only image srcs for lightbox navigation
+          const imageSrcs = p.photos.filter(ph => isImageSrc(ph) && !isVideoSrc(ph) && !isAudioSrc(ph));
+
           photos.innerHTML = p.photos
             .map((ph, i) => {
               if (isVideoSrc(ph)) {
@@ -3377,8 +3473,12 @@
                   <audio src="${ph}" controls style="width:90%;max-width:260px;"></audio>
                 </div>`;
               } else if (isImageSrc(ph)) {
-                return `<div class="modal-photo" style="background:#1a1a2e;overflow:hidden">
+                const lbIdx = imageSrcs.indexOf(ph);
+                return `<div class="modal-photo" style="background:#1a1a2e;overflow:hidden;cursor:zoom-in;position:relative;" data-lbidx="${lbIdx}" onclick="openLightbox(${JSON.stringify(imageSrcs)}, ${lbIdx})">
                   <img src="${ph}" alt="Project photo ${i+1}" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+                  <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.2s;background:rgba(0,0,0,0.3);" class="photo-zoom-hint">
+                    <span style="color:#fff;font-size:1.4rem;">&#x2315;</span>
+                  </div>
                 </div>`;
               } else {
                 return `<div class="modal-photo" style="background:${ph}">
@@ -3389,6 +3489,13 @@
               }
             })
             .join("");
+
+          // Hover effect for zoom hint overlay
+          photos.querySelectorAll(".photo-zoom-hint").forEach(hint => {
+            const parent = hint.parentElement;
+            parent.addEventListener("mouseenter", () => hint.style.opacity = "1");
+            parent.addEventListener("mouseleave", () => hint.style.opacity = "0");
+          });
         }
 
         document.getElementById("projModal").classList.add("open");
@@ -3607,6 +3714,53 @@
         document.body.style.overflow = "";
       }
 
+      /* ─── LIGHTBOX ─── */
+      let _lbImages = [];
+      let _lbIndex = 0;
+
+      function openLightbox(images, startIndex) {
+        _lbImages = images;
+        _lbIndex = startIndex;
+        showLightboxSlide();
+        document.getElementById("lightbox").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function showLightboxSlide() {
+        document.getElementById("lightboxImg").src = _lbImages[_lbIndex];
+        const counter = document.getElementById("lightboxCounter");
+        if (_lbImages.length > 1) {
+          counter.textContent = `${_lbIndex + 1} / ${_lbImages.length}`;
+          document.getElementById("lightboxPrev").style.display = "";
+          document.getElementById("lightboxNext").style.display = "";
+        } else {
+          counter.textContent = "";
+          document.getElementById("lightboxPrev").style.display = "none";
+          document.getElementById("lightboxNext").style.display = "none";
+        }
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("open");
+        document.body.style.overflow = "";
+        document.getElementById("lightboxImg").src = "";
+      }
+
+      document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+      document.getElementById("lightbox").addEventListener("click", (e) => {
+        if (e.target === e.currentTarget || e.target === document.getElementById("lightboxImg")) {
+          if (e.target === document.getElementById("lightbox")) closeLightbox();
+        }
+      });
+      document.getElementById("lightboxPrev").addEventListener("click", () => {
+        _lbIndex = (_lbIndex - 1 + _lbImages.length) % _lbImages.length;
+        showLightboxSlide();
+      });
+      document.getElementById("lightboxNext").addEventListener("click", () => {
+        _lbIndex = (_lbIndex + 1) % _lbImages.length;
+        showLightboxSlide();
+      });
+
       /* ─── FILTER ─── */
       document.addEventListener("click", (e) => {
         const a = e.target.closest("[data-page]");
@@ -3635,6 +3789,15 @@
         if (e.key === "Escape") {
           closeProjModal();
           closeAchModal();
+          closeLightbox();
+        }
+        if (e.key === "ArrowLeft" && document.getElementById("lightbox").classList.contains("open")) {
+          _lbIndex = (_lbIndex - 1 + _lbImages.length) % _lbImages.length;
+          showLightboxSlide();
+        }
+        if (e.key === "ArrowRight" && document.getElementById("lightbox").classList.contains("open")) {
+          _lbIndex = (_lbIndex + 1) % _lbImages.length;
+          showLightboxSlide();
         }
       });
 
